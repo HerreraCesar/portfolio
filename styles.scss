@@ -1,0 +1,51 @@
+// VARIABLES
+
+@import "variables";
+
+// ESTILOS GLOBALES
+
+* {
+  margin: 0rem;
+  padding: 0rem;
+  font-family: $muli;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  scroll-behavior: smooth;
+}
+
+*::selection {
+  background-color: $secondary;
+}
+
+body {
+  background-color: $dark;
+}
+
+/* .container {
+  padding-top: $navBarHeight;
+  width: 100%;
+  min-height: calc(100vh);
+  border: solid 1px red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+h1, h2, h3, h4, h5, h6, p, span {
+  color: $light
+}
+
+// IMPORTACIONES PARCIALES 
+
+/* @import "./scss/about.scss";
+@import "./scss/contact.scss";
+@import "./scss/cover-page.scss";
+@import "./scss/features.scss";
+@import "./scss/footer.scss";
+@import "./scss/navbar.scss";
+@import "./scss/process.scss"; */
+
+// RESPONSIVIDAD
+
+@import "responsive";
