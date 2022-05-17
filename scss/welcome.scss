@@ -1,0 +1,92 @@
+@import "../variables.scss";
+
+#welcome {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  background-color: $dark;
+  transition: opacity 1s ease-in-out;
+  .data {
+    position: relative;
+    width: 100vw; 
+    height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: 5;
+    .title {
+      margin-left: 50px;
+      margin-top: 50px;
+      h2 {
+        font-size: 36px;
+        font-weight: 400;
+      }
+      h1 {
+        font-size: 48px;
+        font-weight: bolder;
+      }
+    }
+    .buttons {
+      width: 100vw;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: center;
+      button {
+        color: $light;
+        font-size: 32px;
+        border: none;
+        background: none;
+        cursor: pointer;
+      }
+      span {
+        font-size: 36px;
+        font-weight: bolder;
+        margin: 0px 50px;
+
+      }
+    }
+    .description {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      p {
+        font-size: 18px;
+        font-weight: 300;
+        margin-bottom: 50px;
+      }
+      animation: flash 2s infinite;
+    }
+    
+    
+  }
+  
+  
+}
+#background {
+  position: absolute;
+  width: 100vw; 
+  height: 100vh;
+  opacity: 0.3;
+  background-position: center;
+  background-repeat: none;
+  background-size:auto;
+}
+.active {
+  opacity: 0;
+}
+
+@keyframes flash {
+  0% {
+    opacity: 100;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
+}

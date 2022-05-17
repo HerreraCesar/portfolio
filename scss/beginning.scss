@@ -1,0 +1,42 @@
+@import "../variables.scss";
+
+#beginning {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    h2 {
+        font-size: 5vw;
+        float:left;
+        position:relative;
+        margin-left: 50px;
+    }
+    h2 span{
+        position:absolute;
+        top:0;
+        right:0;
+        width:100%;
+        background-color:$dark;
+        border-left: .1em solid #FFFFFF;
+        box-sizing: border-box;
+        
+    }
+    
+}
+.continue {
+    position: fixed;
+    bottom: 50px;
+    left: calc(50vw - 50px);
+    font-size: 18px;
+        font-weight: 300;
+        animation: flash 2s infinite;
+}
+
+@keyframes parpadeo{
+	from, to{border-color:transparent}
+	50%{border-color:#FFFFFF}
+}
+@keyframes escribiendo{
+	from{width:100%}
+	to{width:0}
+}

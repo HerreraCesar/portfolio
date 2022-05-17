@@ -1,5 +1,24 @@
 {
   "dependencies": {
     "sass": "^1.51.0"
-  }
+  },
+  "name": "nueva-carpeta",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch styles.scss ./css/styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HerreraCesar/portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HerreraCesar/portfolio/issues"
+  },
+  "homepage": "https://github.com/HerreraCesar/portfolio#readme",
+  "description": ""
 }

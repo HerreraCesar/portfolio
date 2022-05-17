@@ -7,7 +7,7 @@
 * {
   margin: 0rem;
   padding: 0rem;
-  font-family: $muli;
+  font-family: 'Roboto Mono', monospace;
   box-sizing: border-box;
   text-decoration: none;
   list-style: none;
@@ -15,22 +15,80 @@
 }
 
 *::selection {
-  background-color: $secondary;
+  background-color: $primary;
+  color: $dark;
 }
 
 body {
   background-color: $dark;
 }
 
-/* .container {
-  padding-top: $navBarHeight;
-  width: 100%;
-  min-height: calc(100vh);
-  border: solid 1px red;
+.social {
+  position: fixed;
+  top: 0;
+  right: 50px;
+  width: 50px;
+  height: 140px;
+  background-color: rgba(255, 255, 255, 0.2);
+  z-index: 10;
+  backdrop-filter: blur(50px);
+  border-bottom-left-radius: $curve;
+  border-bottom-right-radius: $curve;
   display: flex;
-  justify-content: center;
+  flex-flow: column nowrap;
   align-items: center;
-} */
+  img {
+    filter: invert(1);
+    width: 30px;
+    margin-top: 10px;
+  }
+}
+
+#fullscreen {
+  position: fixed;
+  bottom: 25px;
+  right: 50px;
+  z-index: 10;
+  cursor: pointer;
+  img {
+    filter: invert(1);
+  }
+}
+
+.year {
+  position: fixed;
+  bottom: 50px;
+  left: 50px;
+  z-index: 10;
+}
+
+#frame {
+  width: 100vh;
+  height: 100vw;
+  transform: rotate(-90deg) translateX(-100vh);
+  transform-origin: top left;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: absolute;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+#container {
+  width: 500vw;
+  display: flex;
+  flex-direction: row;
+  transform: rotate(90deg) translateY(-100vh);
+  transform-origin: top left;
+}
+
+.section {
+  width: 100vw;
+  height: 100vh;
+}
 
 h1, h2, h3, h4, h5, h6, p, span {
   color: $light
@@ -38,13 +96,8 @@ h1, h2, h3, h4, h5, h6, p, span {
 
 // IMPORTACIONES PARCIALES 
 
-/* @import "./scss/about.scss";
-@import "./scss/contact.scss";
-@import "./scss/cover-page.scss";
-@import "./scss/features.scss";
-@import "./scss/footer.scss";
-@import "./scss/navbar.scss";
-@import "./scss/process.scss"; */
+@import "./scss/welcome.scss";
+@import "./scss/beginning.scss";
 
 // RESPONSIVIDAD
 
