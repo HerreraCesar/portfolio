@@ -8,18 +8,23 @@
     h2 {
         font-size: 5vw;
         float:left;
-        position:relative;
+        position: absolute;
         margin-left: 50px;
+        top: calc(50vh - 50px);
+        z-index: 5;
     }
-    h2 span{
-        position:absolute;
-        top:0;
-        right:0;
-        width:100%;
-        background-color:$dark;
-        border-left: .1em solid #FFFFFF;
-        box-sizing: border-box;
-        
+    #text {
+        display: inline-block;
+        border-right: 0.1em solid $light;
+        //padding-right: 5px;
+        animation: parpadeo 1s infinite;
+    }
+
+    #section {
+        display: none;
+        top: 41px;
+        font-size: 26px;
+        left: 395px;
     }
     
 }
@@ -30,13 +35,12 @@
     font-size: 18px;
         font-weight: 300;
         animation: flash 2s infinite;
+        z-index: 5;
 }
 
 @keyframes parpadeo{
 	from, to{border-color:transparent}
 	50%{border-color:#FFFFFF}
 }
-@keyframes escribiendo{
-	from{width:100%}
-	to{width:0}
-}
+
+

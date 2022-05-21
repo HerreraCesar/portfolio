@@ -21,6 +21,9 @@
 
 body {
   background-color: $dark;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .social {
@@ -63,10 +66,10 @@ body {
 }
 
 #frame {
-  width: 100vh;
-  height: 100vw;
-  transform: rotate(-90deg) translateX(-100vh);
-  transform-origin: top left;
+  width: 100vw;
+  /* height: 100vw; */
+  /* transform: rotate(-90deg) translateX(-100vh);
+  transform-origin: top left; */
   overflow-y: scroll;
   overflow-x: hidden;
   position: absolute;
@@ -77,13 +80,13 @@ body {
   display: none;
 }
 
-#container {
+/* #container {
   width: 500vw;
   display: flex;
   flex-direction: row;
   transform: rotate(90deg) translateY(-100vh);
   transform-origin: top left;
-}
+} */
 
 .section {
   width: 100vw;
@@ -98,6 +101,8 @@ h1, h2, h3, h4, h5, h6, p, span {
 
 @import "./scss/welcome.scss";
 @import "./scss/beginning.scss";
+@import "./scss/about.scss";
+@import "./scss/skills.scss";
 
 // RESPONSIVIDAD
 

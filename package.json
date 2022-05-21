@@ -2,7 +2,7 @@
   "dependencies": {
     "sass": "^1.51.0"
   },
-  "name": "nueva-carpeta",
+  "name": "portfolio",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {

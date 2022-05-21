@@ -1,0 +1,93 @@
+@import "../variables.scss";
+
+#about {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    padding: 0 50px;
+    height: 100vh;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 1s ease-in-out;
+    div {
+        h1 {
+            position: absolute;
+            bottom: 220px;
+            font-weight: bolder;
+            font-size: 64px;
+            transition: transform 1s ease-in-out;
+            //padding-left: 10px;
+            width: fit-content;
+        }
+
+        h1::before {
+            //left: 50px;
+            position: absolute;
+            content: 'César';
+            color: transparent;
+            transition: all 1s ease-in-out;
+            transform-origin: 100% 0% ;
+        }
+        h1:hover {
+            &::before {
+                transform: rotateY(-180deg);
+                color: hsla(58, 100%, 79%, 0.3);
+            }            
+        }
+        p {
+            transition: all 1s ease-in-out;
+            margin: 20px 0;
+            width: 40vw;
+            font-weight: lighter;
+            opacity: 0;
+            //padding-left: 10px;
+        }
+        a {
+            width: 150px;
+            display: flex;
+            color: $primary;
+            font-size: 24px;
+            padding: 5px 0 ;
+            //box-shadow: inset 0 0 0 0 $primary;
+            transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            
+            img {
+                transition: all 0.5s;
+                filter: invert(1);
+                width: 24px;
+                margin-left: 10px;
+            }
+        }
+        a:hover {
+            font-weight: 600;
+            color: $dark;
+            box-shadow: inset 150px 0 0 0 $primary;
+            img{
+                filter: invert(0);
+            }
+        }
+    }
+    #profile {
+        margin-left: 100px;
+        width: 0%;
+        max-width: 88vh;
+        border-radius: 50%;
+        z-index: 3;
+    }
+    
+}
+#curtain {
+    border-radius: 50%;
+    position: fixed;
+    right: 50px;
+    top: 50vh;
+    width: 0%;
+    max-width: 120vw;
+    max-height: 120vw;
+    background-color: $dark;
+    box-shadow: -30px 0px 25px black;
+    z-index: 2;
+}
