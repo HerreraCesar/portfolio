@@ -28,7 +28,7 @@ body {
   width: 50px;
   height: 140px;
   background-color: rgba(255, 255, 255, 0.2);
-  z-index: 10;
+  z-index: 15;
   backdrop-filter: blur(50px);
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -46,7 +46,7 @@ body {
   position: fixed;
   bottom: 25px;
   right: 50px;
-  z-index: 10;
+  z-index: 15;
   cursor: pointer;
 }
 #fullscreen img {
@@ -57,7 +57,7 @@ body {
   position: fixed;
   bottom: 50px;
   left: 50px;
-  z-index: 10;
+  z-index: 15;
 }
 
 #frame {
@@ -301,22 +301,74 @@ h1, h2, h3, h4, h5, h6, p, span {
   max-width: 120vw;
   max-height: 120vw;
   background-color: #222222;
-  box-shadow: -30px 0px 25px black;
+  box-shadow: 0px 0px 25px black;
   z-index: 2;
 }
 
 #skills {
   position: absolute;
-  top: 0;
+  top: 15vh;
   left: 0;
   width: 100vw;
   padding: 0 50px;
-  height: 100vh;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
+  height: 70vh;
+  overflow: hidden;
+  display: none;
+  flex-direction: column;
   align-items: center;
   transition: all 1s ease-in-out;
+  /* background-color: red; */
+}
+#skills #technologies {
+  /* background-color: aqua; */
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  gap: 200px;
+  transform: translateY(600px);
+  /* &:hover {
+      transform-origin: 100% 0%;
+      transform: rotateX(-80deg); 
+  } */
+}
+#skills #technologies div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* &::after {
+      content: '_HTML5';
+      position: absolute;
+      font-size: 200px;
+
+      font-weight: bolder;
+      color: hsla(0, 0%, 33%, 0.3);
+  } */
+}
+#skills #technologies h3 {
+  font-size: 64px;
+  text-align: end;
+  margin-right: 50px;
+}
+#skills #technologies svg {
+  fill: #fffb95;
+  width: 200px;
+  height: 200px;
+}
+#skills #back {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  align-items: center;
+  transform: translateY(500px);
+  z-index: -1;
+}
+#skills #back h3 {
+  font-size: 200px;
+  font-weight: bolder;
+  color: hsla(0deg, 0%, 33%, 0.3);
 }
 
 /*# sourceMappingURL=styles.css.map */

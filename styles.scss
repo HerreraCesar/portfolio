@@ -33,7 +33,7 @@ body {
   width: 50px;
   height: 140px;
   background-color: rgba(255, 255, 255, 0.2);
-  z-index: 10;
+  z-index: 15;
   backdrop-filter: blur(50px);
   border-bottom-left-radius: $curve;
   border-bottom-right-radius: $curve;
@@ -51,7 +51,7 @@ body {
   position: fixed;
   bottom: 25px;
   right: 50px;
-  z-index: 10;
+  z-index: 15;
   cursor: pointer;
   img {
     filter: invert(1);
@@ -62,7 +62,7 @@ body {
   position: fixed;
   bottom: 50px;
   left: 50px;
-  z-index: 10;
+  z-index: 15;
 }
 
 #frame {
