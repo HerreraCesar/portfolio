@@ -29,13 +29,14 @@
     
 }
 .continue {
+    //transition: all 1s;
     position: fixed;
     bottom: 50px;
     left: calc(50vw - 50px);
     font-size: 18px;
-        font-weight: 300;
-        animation: flash 2s infinite;
-        z-index: 5;
+    font-weight: 300;
+    z-index: 5;
+    opacity: 0;
 }
 
 @keyframes parpadeo{

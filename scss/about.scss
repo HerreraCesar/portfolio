@@ -21,6 +21,21 @@
             transition: transform 1s ease-in-out;
             //padding-left: 10px;
             width: fit-content;
+            cursor: pointer;
+            //transition: all ease;
+            animation: none;
+        }
+
+        @keyframes change {
+            0% {
+                transform: scale(1) translateY(-275px);
+            }
+            50% {
+                transform: scale(0.9) translateY(-310px);
+            }
+            100% {
+                transform: scale(1) translateY(-275px);
+            }
         }
 
         h1::before {
@@ -76,6 +91,7 @@
         max-width: 88vh;
         border-radius: 50%;
         z-index: 3;
+        cursor: pointer;
     }
     
 }

@@ -2,11 +2,15 @@
 * {
   margin: 0rem;
   padding: 0rem;
-  font-family: "Roboto Mono", monospace;
+  font-family: "Roboto Mono";
   box-sizing: border-box;
   text-decoration: none;
   list-style: none;
   scroll-behavior: smooth;
+}
+
+html {
+  font-size: 10px;
 }
 
 *::selection {
@@ -21,31 +25,30 @@ body {
   overflow: hidden;
 }
 
-.social {
+/* .social {
   position: fixed;
   top: 0;
-  right: 50px;
-  width: 50px;
+  right: 5rem;
+  width: 5rem;
   height: 140px;
   background-color: rgba(255, 255, 255, 0.2);
   z-index: 15;
   backdrop-filter: blur(50px);
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: $curve;
+  border-bottom-right-radius: $curve;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-}
-.social img {
-  filter: invert(1);
-  width: 30px;
-  margin-top: 10px;
-}
-
+  img {
+    filter: invert(1);
+    width: 30px;
+    margin-top: 10px;
+  }
+} */
 #fullscreen {
   position: fixed;
-  bottom: 25px;
-  right: 50px;
+  bottom: 2.5rem;
+  right: 5rem;
   z-index: 15;
   cursor: pointer;
 }
@@ -54,17 +57,30 @@ body {
 }
 
 .year {
+  font-size: 1.5rem;
   position: fixed;
-  bottom: 50px;
-  left: 50px;
+  bottom: 5rem;
+  left: 5rem;
   z-index: 15;
+  font-weight: 200;
+}
+
+.description {
+  position: fixed;
+  width: 100vw;
+  bottom: 5rem;
+  left: 0;
+  z-index: 15;
+  animation: flash 2s infinite;
+}
+.description p {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 200;
 }
 
 #frame {
   width: 100vw;
-  /* height: 100vw; */
-  /* transform: rotate(-90deg) translateX(-100vh);
-  transform-origin: top left; */
   overflow-y: scroll;
   overflow-x: hidden;
   position: absolute;
@@ -76,13 +92,6 @@ body {
   display: none;
 }
 
-/* #container {
-  width: 500vw;
-  display: flex;
-  flex-direction: row;
-  transform: rotate(90deg) translateY(-100vh);
-  transform-origin: top left;
-} */
 .section {
   width: 100vw;
   height: 100vh;
@@ -97,6 +106,8 @@ h1, h2, h3, h4, h5, h6, p, span {
   top: 0;
   left: 0;
   z-index: 10;
+  width: 100vw;
+  height: 100vh;
   background-color: #222222;
   transition: opacity 1s ease-in-out;
 }
@@ -105,63 +116,98 @@ h1, h2, h3, h4, h5, h6, p, span {
   width: 100vw;
   height: 100vh;
   display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  z-index: 5;
-}
-#welcome .data .title {
-  margin-left: 50px;
-  margin-top: 50px;
-}
-#welcome .data .title h2 {
-  font-size: 36px;
-  font-weight: 400;
-}
-#welcome .data .title h1 {
-  font-size: 48px;
-  font-weight: bolder;
-}
-#welcome .data .buttons {
-  width: 100vw;
-  display: flex;
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
+  z-index: 5;
+}
+#welcome .data .title {
+  padding: 10rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  backdrop-filter: blur(1rem);
+  height: 30rem;
+  width: 100rem;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  justify-content: center;
+}
+#welcome .data .title h2 {
+  font-size: 4rem;
+  font-weight: 600;
+  font-family: "Montserrat";
+  color: rgb(166, 166, 166);
+}
+#welcome .data .title h1 {
+  font-size: 7rem;
+  font-weight: 900;
+  font-family: "Montserrat";
+}
+#welcome .data .buttons {
+  width: 15rem;
+  margin-left: 5rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
 }
 #welcome .data .buttons button {
+  transform: all 0.3s;
   color: #ffffff;
-  font-size: 32px;
+  font-size: 2.5rem;
   border: none;
   background: none;
   cursor: pointer;
-}
-#welcome .data .buttons span {
-  font-size: 36px;
-  font-weight: bolder;
-  margin: 0px 50px;
-}
-#welcome .data .description {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  animation: flash 2s infinite;
-}
-#welcome .data .description p {
-  font-size: 18px;
+  font-family: "Roboto Mono";
   font-weight: 300;
-  margin-bottom: 50px;
+}
+#welcome .data .buttons button:hover {
+  font-style: italic;
+  color: #fffb95;
+}
+#welcome .data .social {
+  height: 30rem;
+  position: fixed;
+  right: 0;
+  z-index: 15;
+  border-bottom-left-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(1rem);
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-around;
+  padding: 2rem;
+}
+#welcome .data .social a img {
+  filter: invert(1) opacity(0.8);
+  width: 2rem;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+#welcome .data .social a:last-child {
+  transform: scale(1.5);
+}
+#welcome .data .social a :hover {
+  transform: scale(1.5);
 }
 
 #background {
   position: absolute;
   width: 100vw;
   height: 100vh;
-  opacity: 0.3;
-  background-position: center;
-  background-repeat: none;
-  background-size: auto;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+#background video {
+  width: 105%;
+  filter: grayscale(100%);
 }
 
 .active {
@@ -170,13 +216,13 @@ h1, h2, h3, h4, h5, h6, p, span {
 
 @keyframes flash {
   0% {
-    opacity: 100;
+    opacity: 1;
   }
   50% {
     opacity: 0;
   }
   100% {
-    opacity: 100;
+    opacity: 1;
   }
 }
 #beginning {
@@ -211,8 +257,8 @@ h1, h2, h3, h4, h5, h6, p, span {
   left: calc(50vw - 50px);
   font-size: 18px;
   font-weight: 300;
-  animation: flash 2s infinite;
   z-index: 5;
+  opacity: 0;
 }
 
 @keyframes parpadeo {
@@ -243,6 +289,19 @@ h1, h2, h3, h4, h5, h6, p, span {
   font-size: 64px;
   transition: transform 1s ease-in-out;
   width: fit-content;
+  cursor: pointer;
+  animation: none;
+}
+@keyframes change {
+  0% {
+    transform: scale(1) translateY(-275px);
+  }
+  50% {
+    transform: scale(0.9) translateY(-310px);
+  }
+  100% {
+    transform: scale(1) translateY(-275px);
+  }
 }
 #about div h1::before {
   position: absolute;
@@ -290,6 +349,7 @@ h1, h2, h3, h4, h5, h6, p, span {
   max-width: 88vh;
   border-radius: 50%;
   z-index: 3;
+  cursor: pointer;
 }
 
 #curtain {

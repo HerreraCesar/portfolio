@@ -5,6 +5,8 @@
   top: 0;
   left: 0;
   z-index: 10;
+  width: 100vw;
+  height: 100vh;
   background-color: $dark;
   transition: opacity 1s ease-in-out;
   .data {
@@ -12,68 +14,106 @@
     width: 100vw; 
     height: 100vh;
     display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
-    align-items: flex-start;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
     z-index: 5;
     .title {
-      margin-left: 50px;
-      margin-top: 50px;
+      padding: 10rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: $curve;
+      backdrop-filter: blur($blur);
+      height: 30rem;
+      width: 100rem;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: flex-start;
+      justify-content: center;
       h2 {
-        font-size: 36px;
-        font-weight: 400;
+        font-size: 4rem;
+        font-weight: 600;
+        font-family: $montserrat;
+        color: rgb(166, 166, 166);
       }
       h1 {
-        font-size: 48px;
-        font-weight: bolder;
+        font-size: 7rem;
+        font-weight: 900;
+        font-family: $montserrat;
       }
     }
     .buttons {
-      width: 100vw;
+      width: 15rem;
+      margin-left: 5rem;
       display: flex;
-      flex-flow: row nowrap;
-      justify-content: center;
-      align-items: center;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 1rem;
       button {
+        transform: all 0.3s;
         color: $light;
-        font-size: 32px;
+        font-size: 2.5rem;
         border: none;
         background: none;
         cursor: pointer;
-      }
-      span {
-        font-size: 36px;
-        font-weight: bolder;
-        margin: 0px 50px;
-
-      }
-    }
-    .description {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100vw;
-      p {
-        font-size: 18px;
+        font-family: $roboto;
         font-weight: 300;
-        margin-bottom: 50px;
       }
-      animation: flash 2s infinite;
+      button:hover {
+        font-style: italic;
+        color: $primary;
+      }
     }
-    
-    
+    .social {
+      height: 30rem;
+      position: fixed;
+      right: 0;
+      z-index: 15;
+      border-bottom-left-radius: $curve;
+      border-top-left-radius: $curve;
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur($blur);
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      justify-content: space-around;
+      padding: 2rem;
+      a {
+        img {
+          filter: invert(1) opacity(0.8);
+          width: 2rem;
+          cursor: pointer;
+          transition: all 0.5s;
+        }
+        &:last-child {
+          transform: scale(1.5);
+        }
+        & :hover {
+          transform: scale(1.5);
+        }
+        
+      }
+      
+      
+      
+    }
   }
   
   
 }
 #background {
   position: absolute;
-  width: 100vw; 
+  width: 100vw;
   height: 100vh;
-  opacity: 0.3;
-  background-position: center;
-  background-repeat: none;
-  background-size:auto;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  video {
+    width: 105%;
+    filter: grayscale(100%);
+  }
 }
 .active {
   opacity: 0;
@@ -81,12 +121,12 @@
 
 @keyframes flash {
   0% {
-    opacity: 100;
+    opacity: 1;
   }
   50% {
     opacity: 0;
   }
   100% {
-    opacity: 100;
+    opacity: 1;
   }
 }

@@ -7,11 +7,15 @@
 * {
   margin: 0rem;
   padding: 0rem;
-  font-family: 'Roboto Mono', monospace;
+  font-family: $roboto;
   box-sizing: border-box;
   text-decoration: none;
   list-style: none;
   scroll-behavior: smooth;
+}
+
+html {
+  font-size: 10px;
 }
 
 *::selection {
@@ -26,11 +30,11 @@ body {
   overflow: hidden;
 }
 
-.social {
+/* .social {
   position: fixed;
   top: 0;
-  right: 50px;
-  width: 50px;
+  right: 5rem;
+  width: 5rem;
   height: 140px;
   background-color: rgba(255, 255, 255, 0.2);
   z-index: 15;
@@ -45,12 +49,12 @@ body {
     width: 30px;
     margin-top: 10px;
   }
-}
+} */
 
 #fullscreen {
   position: fixed;
-  bottom: 25px;
-  right: 50px;
+  bottom: 2.5rem;
+  right: 5rem;
   z-index: 15;
   cursor: pointer;
   img {
@@ -59,34 +63,40 @@ body {
 }
 
 .year {
+  font-size: 1.5rem;
   position: fixed;
-  bottom: 50px;
-  left: 50px;
+  bottom: 5rem;
+  left: 5rem;
   z-index: 15;
+  font-weight: 200;
+}
+
+.description {
+  position: fixed;
+  width: 100vw;
+  bottom: 5rem;
+  left: 0;
+  z-index: 15;
+  animation: flash 2s infinite;
+  p {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 200;
+  }
 }
 
 #frame {
   width: 100vw;
-  /* height: 100vw; */
-  /* transform: rotate(-90deg) translateX(-100vh);
-  transform-origin: top left; */
   overflow-y: scroll;
   overflow-x: hidden;
   position: absolute;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
+
 ::-webkit-scrollbar {
   display: none;
 }
-
-/* #container {
-  width: 500vw;
-  display: flex;
-  flex-direction: row;
-  transform: rotate(90deg) translateY(-100vh);
-  transform-origin: top left;
-} */
 
 .section {
   width: 100vw;
