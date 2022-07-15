@@ -5,72 +5,48 @@
     top: 15vh;
     left: 0;
     width: 100vw;
-    padding: 0 50px;
+    padding: 0 5rem;
     height: 70vh;
     overflow: hidden;
     display: none;
     flex-direction: column;
     align-items: center;
     transition: all 1s ease-in-out;
-    /* background-color: red; */
-    //transform: translateX(100%);
     #technologies {
-        //transform: translateY(-500px);
-        /* background-color: aqua; */
-        //transition: all 0.3s;
         display: flex;
         flex-flow: column;
-        //justify-content: flex-start;
         align-items: center;
         width: 100%;
         height: auto;
-        gap: 200px;
-        //transform-origin: 100% 100%;
-        transform: translateY(600px);
-        
+        gap: 20rem;
+        transform: translateY(60rem);
         div {
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            /* &::after {
-                content: '_HTML5';
-                position: absolute;
-                font-size: 200px;
-                
-                font-weight: bolder;
-                color: hsla(0, 0%, 33%, 0.3);
-            } */
         }
         h3 {
-            font-size: 64px;
+            font-size: 6rem;
             text-align: end;
-            margin-right: 50px;
+            margin-right: 5rem;
         }
         svg {
             fill: $primary;
-            width: 200px;
-            height: 200px;
+            width: 20rem;
+            height: 20rem;
         }
-        /* &:hover {
-            transform-origin: 100% 0%;
-            transform: rotateX(-80deg); 
-        } */
-        
     }
     #back {
         display: flex;
         flex-direction: column;
         position: absolute;
         align-items: center;
-        transform: translateY(500px);
+        transform: translateY(40rem);
         z-index: -1;
-        //gap: 100px;
-        //left: 0;
-        //width: 100vw;
-        //perspective: 50px;
         h3 {
-            font-size: 200px;
+            margin-bottom: 0.5rem;
+            font-size: 20rem;
             font-weight: bolder;
             color: hsla(0, 0%, 33%, 0.3);
         }

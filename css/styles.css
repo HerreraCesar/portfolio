@@ -9,13 +9,13 @@
   scroll-behavior: smooth;
 }
 
-html {
-  font-size: 10px;
-}
-
 *::selection {
   background-color: #fffb95;
   color: #222222;
+}
+
+html {
+  font-size: 10px;
 }
 
 body {
@@ -25,56 +25,17 @@ body {
   overflow: hidden;
 }
 
-/* .social {
-  position: fixed;
-  top: 0;
-  right: 5rem;
-  width: 5rem;
-  height: 140px;
-  background-color: rgba(255, 255, 255, 0.2);
-  z-index: 15;
-  backdrop-filter: blur(50px);
-  border-bottom-left-radius: $curve;
-  border-bottom-right-radius: $curve;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  img {
-    filter: invert(1);
-    width: 30px;
-    margin-top: 10px;
-  }
-} */
-#fullscreen {
-  position: fixed;
-  bottom: 2.5rem;
-  right: 5rem;
-  z-index: 15;
-  cursor: pointer;
-}
-#fullscreen img {
-  filter: invert(1);
-}
-
-.year {
-  font-size: 1.5rem;
-  position: fixed;
-  bottom: 5rem;
-  left: 5rem;
-  z-index: 15;
-  font-weight: 200;
-}
-
-.description {
+#description {
   position: fixed;
   width: 100vw;
   bottom: 5rem;
   left: 0;
+  display: flex;
+  justify-content: center;
   z-index: 15;
   animation: flash 2s infinite;
 }
-.description p {
-  text-align: center;
+#description p {
   font-size: 1.5rem;
   font-weight: 200;
 }
@@ -97,6 +58,10 @@ body {
   height: 100vh;
 }
 
+.active {
+  opacity: 0;
+}
+
 h1, h2, h3, h4, h5, h6, p, span {
   color: #ffffff;
 }
@@ -106,10 +71,8 @@ h1, h2, h3, h4, h5, h6, p, span {
   top: 0;
   left: 0;
   z-index: 10;
-  width: 100vw;
-  height: 100vh;
   background-color: #222222;
-  transition: opacity 1s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 #welcome .data {
   position: relative;
@@ -186,7 +149,7 @@ h1, h2, h3, h4, h5, h6, p, span {
   filter: invert(1) opacity(0.8);
   width: 2rem;
   cursor: pointer;
-  transition: all 0.5s;
+  transition: all 0.3s;
 }
 #welcome .data .social a:last-child {
   transform: scale(1.5);
@@ -210,10 +173,6 @@ h1, h2, h3, h4, h5, h6, p, span {
   filter: grayscale(100%);
 }
 
-.active {
-  opacity: 0;
-}
-
 @keyframes flash {
   0% {
     opacity: 1;
@@ -231,34 +190,14 @@ h1, h2, h3, h4, h5, h6, p, span {
   justify-content: center;
   align-items: flex-start;
 }
-#beginning h2 {
-  font-size: 5vw;
-  float: left;
-  position: absolute;
-  margin-left: 50px;
-  top: calc(50vh - 50px);
-  z-index: 5;
-}
 #beginning #text {
-  display: inline-block;
-  border-right: 0.1em solid #ffffff;
-  animation: parpadeo 1s infinite;
-}
-#beginning #section {
-  display: none;
-  top: 41px;
-  font-size: 26px;
-  left: 395px;
-}
-
-.continue {
-  position: fixed;
-  bottom: 50px;
-  left: calc(50vw - 50px);
-  font-size: 18px;
-  font-weight: 300;
+  position: absolute;
+  font-size: 7rem;
+  margin-left: 5rem;
+  top: calc(50vh - 3.5rem);
   z-index: 5;
-  opacity: 0;
+  border-right: 0.5rem solid #ffffff;
+  animation: parpadeo 1s infinite;
 }
 
 @keyframes parpadeo {
@@ -273,83 +212,69 @@ h1, h2, h3, h4, h5, h6, p, span {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  padding: 0 50px;
-  height: 100vh;
+  padding: 0 5rem;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  transition: all 1s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
 }
-#about div h1 {
+#about #data h1 {
+  transform: translateY(5rem);
   position: absolute;
-  bottom: 220px;
+  top: calc(50vh - 3.5rem);
   font-weight: bolder;
-  font-size: 64px;
-  transition: transform 1s ease-in-out;
+  font-size: 7rem;
   width: fit-content;
-  cursor: pointer;
-  animation: none;
 }
-@keyframes change {
-  0% {
-    transform: scale(1) translateY(-275px);
-  }
-  50% {
-    transform: scale(0.9) translateY(-310px);
-  }
-  100% {
-    transform: scale(1) translateY(-275px);
-  }
-}
-#about div h1::before {
+#about #data h1::before {
   position: absolute;
   content: "César";
   color: transparent;
   transition: all 1s ease-in-out;
   transform-origin: 100% 0%;
 }
-#about div h1:hover::before {
+#about #data h1:hover::before {
   transform: rotateY(-180deg);
   color: hsla(58deg, 100%, 79%, 0.3);
 }
-#about div p {
-  transition: all 1s ease-in-out;
-  margin: 20px 0;
+#about #data p {
+  margin: 2rem 0;
   width: 40vw;
   font-weight: lighter;
   opacity: 0;
+  font-size: 1.8rem;
+  transform: translateY(5rem);
 }
-#about div a {
-  width: 150px;
+#about #data a {
+  transform: translateY(5rem);
+  width: 16rem;
   display: flex;
   color: #fffb95;
-  font-size: 24px;
-  padding: 5px 0;
+  font-size: 2.4rem;
+  padding: 1rem 0;
+  box-shadow: inset 0 0 0 0 transparent;
   transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
-#about div a img {
-  transition: all 0.5s;
+#about #data a img {
+  transition: filter 0.5s;
   filter: invert(1);
-  width: 24px;
-  margin-left: 10px;
+  width: 2.4rem;
+  margin-left: 1.5rem;
 }
-#about div a:hover {
+#about #data a:hover {
   font-weight: 600;
   color: #222222;
-  box-shadow: inset 150px 0 0 0 #fffb95;
+  box-shadow: inset 16rem 0 0 0 #fffb95;
 }
-#about div a:hover img {
+#about #data a:hover img {
   filter: invert(0);
 }
 #about #profile {
-  margin-left: 100px;
+  margin-left: 10rem;
   width: 0%;
-  max-width: 88vh;
   border-radius: 50%;
   z-index: 3;
-  cursor: pointer;
 }
 
 #curtain {
@@ -370,65 +295,192 @@ h1, h2, h3, h4, h5, h6, p, span {
   top: 15vh;
   left: 0;
   width: 100vw;
-  padding: 0 50px;
+  padding: 0 5rem;
   height: 70vh;
   overflow: hidden;
   display: none;
   flex-direction: column;
   align-items: center;
   transition: all 1s ease-in-out;
-  /* background-color: red; */
 }
 #skills #technologies {
-  /* background-color: aqua; */
   display: flex;
   flex-flow: column;
   align-items: center;
   width: 100%;
   height: auto;
-  gap: 200px;
-  transform: translateY(600px);
-  /* &:hover {
-      transform-origin: 100% 0%;
-      transform: rotateX(-80deg); 
-  } */
+  gap: 20rem;
+  transform: translateY(60rem);
 }
 #skills #technologies div {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* &::after {
-      content: '_HTML5';
-      position: absolute;
-      font-size: 200px;
-
-      font-weight: bolder;
-      color: hsla(0, 0%, 33%, 0.3);
-  } */
 }
 #skills #technologies h3 {
-  font-size: 64px;
+  font-size: 6rem;
   text-align: end;
-  margin-right: 50px;
+  margin-right: 5rem;
 }
 #skills #technologies svg {
   fill: #fffb95;
-  width: 200px;
-  height: 200px;
+  width: 20rem;
+  height: 20rem;
 }
 #skills #back {
   display: flex;
   flex-direction: column;
   position: absolute;
   align-items: center;
-  transform: translateY(500px);
+  transform: translateY(40rem);
   z-index: -1;
 }
 #skills #back h3 {
-  font-size: 200px;
+  margin-bottom: 0.5rem;
+  font-size: 20rem;
   font-weight: bolder;
   color: hsla(0deg, 0%, 33%, 0.3);
+}
+
+#experiences {
+  position: absolute;
+  top: 15vh;
+  left: 0;
+  width: 100vw;
+  padding: 0 5rem;
+  height: 70vh;
+  overflow: hidden;
+  display: grid;
+  transition: all 1s ease-in-out;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr;
+  grid-gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+#experiences div {
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+#experiences div img {
+  background-position: center;
+  width: 100%;
+  border-radius: 0.5rem;
+}
+#experiences div h3 {
+  font-family: "Ubuntu";
+  font-size: 20px;
+  margin-top: 10px;
+  font-weight: 100;
+}
+#experiences div div {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+#experiences div div div {
+  transition: all 0.5s;
+}
+#experiences div div div img {
+  margin-top: 10px;
+  margin-right: 10px;
+  width: 20px;
+  filter: invert(1) opacity(0.5) saturate(0);
+}
+#experiences div div div:hover {
+  margin-right: 50px;
+}
+#experiences div div div:hover::after {
+  margin-right: 10px;
+  transform: translateX(30px);
+  opacity: 1;
+}
+#experiences div div .react:hover {
+  margin-right: 90px;
+}
+#experiences div div .firebase:hover {
+  margin-right: 90px;
+}
+#experiences div div .html::after {
+  content: "HTML";
+  position: absolute;
+  color: #777777;
+  font-size: 16px;
+  margin-right: 0;
+  margin-top: 10px;
+  opacity: 0;
+  transition: all 0.5s;
+}
+#experiences div div .sass::after {
+  content: "SASS";
+  position: absolute;
+  color: #777777;
+  font-size: 16px;
+  margin-right: 10px;
+  margin-top: 10px;
+  opacity: 0;
+  transition: all 0.5s;
+}
+#experiences div div .js::after {
+  content: "JavaScript";
+  position: absolute;
+  color: #777777;
+  font-size: 16px;
+  margin-right: 10px;
+  margin-top: 10px;
+  opacity: 0;
+  transition: all 0.5s;
+}
+#experiences div div .git::after {
+  content: "Git";
+  position: absolute;
+  color: #777777;
+  font-size: 16px;
+  margin-right: 10px;
+  margin-top: 10px;
+  opacity: 0;
+  transition: all 0.5s;
+}
+#experiences div div .css3::after {
+  content: "CSS3";
+  position: absolute;
+  color: #777777;
+  font-size: 16px;
+  margin-right: 10px;
+  margin-top: 10px;
+  opacity: 0;
+  transition: all 0.5s;
+}
+#experiences div div .react::after {
+  content: "React Js";
+  position: absolute;
+  color: #777777;
+  font-size: 16px;
+  margin-right: 10px;
+  margin-top: 10px;
+  opacity: 0;
+  transition: all 0.5s;
+}
+#experiences div div .photoshop::after {
+  content: "Photoshop";
+  position: absolute;
+  color: #777777;
+  font-size: 16px;
+  margin-right: 10px;
+  margin-top: 10px;
+  opacity: 0;
+  transition: all 0.5s;
+}
+#experiences div div .firebase::after {
+  content: "Firebase";
+  position: absolute;
+  color: #777777;
+  font-size: 16px;
+  margin-right: 10px;
+  margin-top: 10px;
+  opacity: 0;
+  transition: all 0.5s;
 }
 
 /*# sourceMappingURL=styles.css.map */

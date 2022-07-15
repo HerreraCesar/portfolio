@@ -5,38 +5,15 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: flex-start;
-    h2 {
-        font-size: 5vw;
-        float:left;
-        position: absolute;
-        margin-left: 50px;
-        top: calc(50vh - 50px);
-        z-index: 5;
-    }
     #text {
-        display: inline-block;
-        border-right: 0.1em solid $light;
-        //padding-right: 5px;
+        position: absolute;
+        font-size: 7rem;
+        margin-left: 5rem;
+        top: calc(50vh - 3.5rem);
+        z-index: 5;
+        border-right: 0.5rem solid $light;
         animation: parpadeo 1s infinite;
     }
-
-    #section {
-        display: none;
-        top: 41px;
-        font-size: 26px;
-        left: 395px;
-    }
-    
-}
-.continue {
-    //transition: all 1s;
-    position: fixed;
-    bottom: 50px;
-    left: calc(50vw - 50px);
-    font-size: 18px;
-    font-weight: 300;
-    z-index: 5;
-    opacity: 0;
 }
 
 @keyframes parpadeo{
