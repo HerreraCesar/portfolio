@@ -34,7 +34,7 @@ document.querySelector("#background video").style.transform = `scaleY(${
 })`;
 
 // LISTAS
-const pictureFilters = [
+/* const pictureFilters = [
   "blur(3px)",
   "brightness(0.5)",
   "brightness(2)",
@@ -54,7 +54,7 @@ const pictureFilters = [
   "saturate(150%)",
   "saturate(300%)",
   "sepia(100%)",
-];
+]; */
 
 const fonts = [
   "Roboto Mono",
@@ -103,10 +103,7 @@ const contact = document.querySelector("#contact");
 
 // FLUJO PÁGINA
 
-EventByDevice = 'touchmove'
-
-
-comenzar.addEventListener('click', () => {
+comenzar.addEventListener("click", () => {
   // ANIMACIÓN URL
   window.scroll(0, 0);
   description.style.display = "none";
@@ -130,66 +127,61 @@ comenzar.addEventListener('click', () => {
     description.style.display = "flex";
 
     // AVANCE SCROLL
-    let progress = 24000;
-    let EventByDevice
-    let mobile = {
-      Android: function() {
-        return navigator.userAgent.match(/Android/i);
-      },
-      BlackBerry: function() {
-        return navigator.userAgent.match(/BlackBerry/i);
-      },
-      iOS: function() {
-        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-      },
-      Opera: function() {
-        return navigator.userAgent.match(/Opera Mini/i);
-      },
-      Windows: function() {
-        return navigator.userAgent.match(/IEMobile/i);
-      },
-      any: function() {
-        return (mobile.Android() || mobile.BlackBerry() || mobile.iOS() || mobile.Opera() || mobile.Windows());
-      }
-    }; 
 
-    if (mobile.any() !== null) {
-      EventByDevice = 'touchmove'
-    }
-    EventByDevice = 'wheel'
-    window.addEventListener(EventByDevice, (e) => {
+    let progress = 340;
+    let event = new Event("wheel");
+    let lastY;
+    let currentY;
+    window.addEventListener("touchmove", (e) => {
+      currentY = e.touches[0].clientY;
+      window.dispatchEvent(event);
+      lastY = currentY;
+      
+    });
+
+    window.addEventListener("wheel", (e) => {
       let base = "https://herreracesar.dev";
-      if (progress === 0 && e.deltaY < 0) {
-        return;
+      if (e.deltaY) {
+        if (progress === 0 && e.deltaY < 0) {
+          return;
+        } else {
+          progress += (e.deltaY / 125);
+        }
       } else {
-        progress += e.deltaY;
+        if ( progress > 0 || progress === 0) {
+          if (currentY > lastY && progress > 0){
+            --progress;
+          } else if (currentY < lastY) {
+            ++progress;
+          }
+        } 
       }
       console.log(progress);
-      if (progress < 1375) {
-        text.style.top = `calc(50vh - 7rem - ${progress / 50}rem)`;
-        text.style.fontSize = `calc(7rem - ${progress / 250}rem)`;
+      if (progress < 10) {
+        text.style.top = `calc(50vh - 7rem - ${progress / 0.35}rem)`;
+        text.style.fontSize = `calc(7rem - ${progress / 2}rem)`;
         text.innerHTML = base;
       }
-      if (progress >= 1375) {
+      if (progress >= 11) {
         text.innerHTML = base + "/";
       }
-      if (progress >= 1500) {
+      if (progress >= 12) {
         text.innerHTML = base + "/a";
       }
-      if (progress >= 1625) {
+      if (progress >= 13) {
         text.innerHTML = base + "/ab";
       }
-      if (progress >= 1750) {
+      if (progress >= 14) {
         text.innerHTML = base + "/abo";
       }
-      if (progress >= 1875) {
+      if (progress >= 15) {
         text.innerHTML = base + "/abou";
       }
-      if (progress >= 2000) {
+      if (progress >= 16) {
         text.innerHTML = base + "/about";
         about.style.opacity = 0;
       }
-      if (progress >= 2125) {
+      if (progress >= 17) {
         about.innerHTML = `
           <div id="data">
             <h1 id='name'>César</h1>
@@ -200,29 +192,25 @@ comenzar.addEventListener('click', () => {
         `;
         about.style.opacity = 1;
       }
-      if (progress >= 2250) {
-        document.querySelector("#profile").style.width = `${
-          (progress - 2000) / 50
-        }%`;
-        document.querySelector("#name").style.transform = `translateY(${
-          ((progress - 2250) / -90) +5
-        }rem)`;
+      if (progress >= 18) {
+        document.querySelector("#profile").style.width = `${(progress-18)*1.5}%`;
+        document.querySelector("#name").style.transform = `translateY(${(progress-18-5)*-1}rem)`;
       }
-      if (progress >= 4000) {
+      if (progress >= 40) {
         document.querySelector("#data p").style.opacity = 1;
         document.querySelector(
           "#name"
-        ).style.transform = `translateY(-14.5rem)`;
+        ).style.transform = `translateY(-16rem)`;
         document.querySelector("#name").style.cursor = "pointer";
         document.querySelector("#name").addEventListener("click", () => {
           document.querySelector("#name").style.fontFamily =
             fonts[random(fonts.length)];
         });
-        document.querySelector("#profile").style.width = `40%`;
+        document.querySelector("#profile").style.width = `33%`;
       }
-      if (progress >= 4250) {
+      if (progress >= 42) {
         document.querySelector("#profile").style.width = `${
-          40 - (progress - 4250) / 70
+          33 - (progress - 42)
         }%`;
         document.querySelector("#name").style.fontFamily =
           fonts[random(fonts.length)];
@@ -230,60 +218,60 @@ comenzar.addEventListener('click', () => {
         curtain.style.height = 0;
         curtain.style.top = 0;
       }
-      if (progress >= 6875) {
+      if (progress >= 75) {
         document.querySelector("#name").style.fontFamily = "Roboto Mono";
         document.querySelector("#profile").style.opacity = 0;
         document.querySelector("#profile").style.width = 0;
-        curtain.style.top = `calc(50vh - (${(progress - 6750) / 30}vw)/2)`;
-        curtain.style.width = `${(progress - 6750) / 30}vw`;
-        curtain.style.height = `${(progress - 6750) / 30}vw`;
+        curtain.style.top = `calc(50vh - (${(progress - 75) * 2}vw)/2)`;
+        curtain.style.width = `${(progress - 75) * 2}vw`;
+        curtain.style.height = `${(progress - 75) * 2}vw`;
         curtain.style.boxShadow = `-${
-          (progress - 6750) / 360
+          (progress - 75) / 6
         }vw 0px 30px black`;
       }
-      if (progress >= 10000) {
+      if (progress >= 127) {
         about.innerHTML = "";
         curtain.style.width = 0;
         curtain.style.height = 0;
         curtain.style.top = 0;
         curtain.style.boxShadow = "none";
       }
-      if (progress >= 10125) {
+      if (progress >= 130) {
         text.innerHTML = base + "/abou";
       }
-      if (progress >= 10250) {
+      if (progress >= 131) {
         text.innerHTML = base + "/abo";
       }
-      if (progress >= 10375) {
+      if (progress >= 132) {
         text.innerHTML = base + "/ab";
       }
-      if (progress >= 10500) {
+      if (progress >= 133) {
         text.innerHTML = base + "/a";
       }
-      if (progress >= 10625) {
+      if (progress >= 134) {
         text.innerHTML = base + "/";
       }
-      if (progress >= 10750) {
+      if (progress >= 135) {
         text.innerHTML = base + "/s";
       }
-      if (progress >= 10875) {
+      if (progress >= 136) {
         text.innerHTML = base + "/sk";
       }
-      if (progress >= 11000) {
+      if (progress >= 137) {
         text.innerHTML = base + "/ski";
       }
-      if (progress >= 11125) {
+      if (progress >= 138) {
         text.innerHTML = base + "/skil";
       }
-      if (progress >= 11250) {
+      if (progress >= 139) {
         text.innerHTML = base + "/skill";
       }
-      if (progress >= 11375) {
+      if (progress >= 140) {
         text.innerHTML = base + "/skills";
         skills.style.display = "none";
         technologies.innerHTML = "";
       }
-      if (progress >= 11500) {
+      if (progress >= 141) {
         skills.style.display = "flex";
         back.innerHTML = `
             <h3>_HTML5</h3>
@@ -384,75 +372,82 @@ comenzar.addEventListener('click', () => {
         </div>
         `;
       }
-      if (progress >= 11625) {
+      if (progress >= 142) {
         technologies.style.transform = `translateY(${
-          60 + (progress - 11625) / -20
+          60 + ((progress - 142)*-3)
         }rem)`;
         back.style.transform = `translateY(${
-          40 + (progress - 11625) / -30
+          40 + ((progress - 142)*-2)
         }rem)`;
       }
-      if (progress >= 22625) {
-        technologies.style.transform = `translateY(-483.75rem)`;
-        back.style.transform = `translateY(-322.5rem)`;
+      if (progress >= 323) {
+        technologies.style.transform = `translateY(-483rem)`;
+        back.style.transform = `translateY(-322rem)`;
       }
-      if (progress >= 22750) {
+      if (progress >= 324) {
         text.innerHTML = base + "/skill";
       }
-      if (progress >= 22875) {
+      if (progress >= 325) {
         text.innerHTML = base + "/skil";
       }
-      if (progress >= 23000) {
+      if (progress >= 326) {
         text.innerHTML = base + "/ski";
       }
-      if (progress >= 23125) {
+      if (progress >= 327) {
         text.innerHTML = base + "/sk";
       }
-      if (progress >= 23250) {
+      if (progress >= 328) {
         text.innerHTML = base + "/s";
       }
-      if (progress >= 23375) {
+      if (progress >= 329) {
         text.innerHTML = base + "/";
       }
-      if (progress >= 23500) {
+      if (progress >= 330) {
         text.innerHTML = base + "/e";
       }
-      if (progress >= 23625) {
+      if (progress >= 331) {
         text.innerHTML = base + "/ex";
       }
-      if (progress >= 23750) {
+      if (progress >= 332) {
         text.innerHTML = base + "/exp";
       }
-      if (progress >= 23875) {
+      if (progress >= 333) {
         text.innerHTML = base + "/expe";
       }
-      if (progress >= 24000) {
+      if (progress >= 334) {
         text.innerHTML = base + "/exper";
       }
-      if (progress >= 24125) {
+      if (progress >= 335) {
         text.innerHTML = base + "/experi";
       }
-      if (progress >= 24250) {
+      if (progress >= 336) {
         text.innerHTML = base + "/experie";
       }
-      if (progress >= 24375) {
+      if (progress >= 337) {
         text.innerHTML = base + "/experien";
       }
-      if (progress >= 24500) {
+      if (progress >= 338) {
         text.innerHTML = base + "/experienc";
       }
-      if (progress >= 24625) {
+      if (progress >= 339) {
         text.innerHTML = base + "/experience";
       }
-      if (progress >= 24750) {
+      if (progress >= 340) {
         text.innerHTML = base + "/experiences";
       }
-      if (progress >= 24875) {
+      if (progress >= 341) {
+        experiences.style.zIndex = 1
         experiences.innerHTML = `
-          <div>
-            <img src="./assets/images/1000movies.png" alt="">
+          <div class='project'>
+            <div class='screenshot'>
+              <img src="./assets/images/1000movies.png" alt="1000movies">
+              <div class='links'>
+                <a href='https://github.com/HerreraCesar/movies-website' target='_blank'>_Repository </a>
+                <a href='https://herreracesar.github.io/movies-website/' target='_blank'>_Deploy </a>
+              </div>
+            </div>
             <h3>1000 Movies</h3>
-            <div>
+            <div class='icons'>
               <div class='html'>
                 <img src="./assets/icons/html5.svg" alt="html">
               </div>
@@ -467,10 +462,16 @@ comenzar.addEventListener('click', () => {
               </div>
             </div>
           </div>
-          <div>
-            <img src="./assets/images/pcentrix.png" alt="">
+          <div class='project'>
+            <div class='screenshot'>
+              <img src="./assets/images/pcentrix.png" alt="pcentrix">
+              <div class='links'>
+                <a href='https://github.com/HerreraCesar/pcentrix' target='_blank'>_Repository </a>
+                <a href='https://pcentrix.netlify.app/' target='_blank'>_Deploy </a>
+              </div>
+            </div>
             <h3>Pcentrix</h3>
-            <div>
+            <div class='icons'>
               <div class='html'>
                 <img src="./assets/icons/html5.svg" alt="html">
               </div>
@@ -485,10 +486,16 @@ comenzar.addEventListener('click', () => {
               </div>
             </div>
           </div>
-          <div>
-            <img src="./assets/images/sergalgos.png" alt="">
+          <div class='project'>
+            <div  class='screenshot'>
+              <img src="./assets/images/sergalgos.png" alt="sergalgos">
+              <div class='links'>
+                <a href='https://github.com/HerreraCesar/ser-galgos' target='_blank'>_Repository </a>
+                <a href='https://sergalgos.netlify.app/' target='_blank'>_Deploy </a>
+              </div>
+            </div>
             <h3>Ser Galgos</h3>
-            <div>
+            <div class='icons'>
               <div class='html'>
                 <img src="./assets/icons/html5.svg" alt="html">
               </div>
@@ -503,10 +510,16 @@ comenzar.addEventListener('click', () => {
               </div>
             </div>
           </div>
-          <div>
-            <img src="./assets/images/basicstore.png" alt="">
+          <div class='project'>
+            <div  class='screenshot'>
+              <img src="./assets/images/basicstore.png" alt="basicstore">
+              <div class='links'>
+                <a href='https://github.com/HerreraCesar/basics-store' target='_blank'>_Repository </a>
+                <a href='https://basics-store.netlify.app/' target='_blank'>_Deploy </a>
+              </div>
+            </div>
             <h3>Basics Store</h3>
-            <div>
+            <div class='icons'>
               <div class='react'>
                 <img src="./assets/icons/react.svg" alt="react">
               </div>
@@ -524,10 +537,16 @@ comenzar.addEventListener('click', () => {
               </div>
             </div>
           </div>
-          <div>
-            <img src="./assets/images/stail.png" alt="">
+          <div class='project'>
+            <div  class='screenshot'>
+              <img src="./assets/images/stail.png" alt="stail">
+              <div class='links'>
+                <a href='https://github.com/HerreraCesar/lighting-store' target='_blank'>_Repository </a>
+                <a href='https://herreracesar.github.io/lighting-store/' target='_blank'>_Deploy </a>
+              </div>
+            </div>
             <h3>Stail Iluminación</h3>
-            <div>
+            <div class='icons'>
               <div class='html'>
                 <img src="./assets/icons/html5.svg" alt="html">
               </div>
@@ -539,10 +558,10 @@ comenzar.addEventListener('click', () => {
               </div>
             </div>
           </div>
-        `
+        `;
       }
-      if (progress >= 25000) {
-        /* document.querySelector('#experiences div img').style.transform = `rotateX(${110 - ((progress-25000) / 25)}deg)` */
+      if (progress >= 342) {
+        experiences.style.transform = `translateX(${-150 + ((progress-342)*5)}rem)`
       }
     });
   }, 4850);

@@ -344,65 +344,103 @@ h1, h2, h3, h4, h5, h6, p, span {
 }
 
 #experiences {
+  transform: translateX(-180rem);
+  z-index: -1;
   position: absolute;
   top: 15vh;
   left: 0;
-  width: 100vw;
+  width: 140vw;
   padding: 0 5rem;
   height: 70vh;
-  overflow: hidden;
   display: grid;
-  transition: all 1s ease-in-out;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: 1fr;
   grid-gap: 2rem;
   justify-content: center;
   align-items: center;
 }
-#experiences div {
-  overflow: hidden;
+#experiences .project {
   border-radius: 0.5rem;
 }
-#experiences div img {
-  background-position: center;
+#experiences .project .screenshot {
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  z-index: 5;
+}
+#experiences .project .screenshot img {
+  transition: all 0.3s ease-in-out;
   width: 100%;
   border-radius: 0.5rem;
 }
-#experiences div h3 {
+#experiences .project .screenshot .links {
+  position: absolute;
+  right: 10px;
+  top: calc(50% - 10px);
+  width: 100%;
+  display: none;
+  flex-flow: column nowrap;
+  align-items: flex-end;
+}
+#experiences .project .screenshot .links a {
+  margin-bottom: 3px;
+  backdrop-filter: blur(1rem);
+  font-weight: bolder;
+  z-index: 20;
+  color: #ffffff;
+  padding: 5px;
+  box-shadow: 0 0 5px #000000;
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+#experiences .project .screenshot .links a:hover {
+  color: #222222;
+  background-color: #fffb95;
+}
+#experiences .project .screenshot:hover {
+  z-index: 10;
+  transform: scale(2);
+  transform-origin: 50% 40%;
+}
+#experiences .project .screenshot:hover img {
+  box-shadow: 0 0 15px #000000;
+}
+#experiences .project .screenshot:hover .links {
+  display: flex;
+}
+#experiences .project h3 {
   font-family: "Ubuntu";
   font-size: 20px;
   margin-top: 10px;
   font-weight: 100;
 }
-#experiences div div {
+#experiences .project .icons {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
+  position: relative;
 }
-#experiences div div div {
+#experiences .project .icons div {
   transition: all 0.5s;
 }
-#experiences div div div img {
+#experiences .project .icons div img {
   margin-top: 10px;
   margin-right: 10px;
   width: 20px;
   filter: invert(1) opacity(0.5) saturate(0);
 }
-#experiences div div div:hover {
+#experiences .project .icons div:hover {
   margin-right: 50px;
 }
-#experiences div div div:hover::after {
+#experiences .project .icons div:hover::after {
   margin-right: 10px;
-  transform: translateX(30px);
   opacity: 1;
 }
-#experiences div div .react:hover {
+#experiences .project .icons .react:hover {
   margin-right: 90px;
 }
-#experiences div div .firebase:hover {
+#experiences .project .icons .firebase:hover {
   margin-right: 90px;
 }
-#experiences div div .html::after {
+#experiences .project .icons .html::after {
   content: "HTML";
   position: absolute;
   color: #777777;
@@ -412,7 +450,7 @@ h1, h2, h3, h4, h5, h6, p, span {
   opacity: 0;
   transition: all 0.5s;
 }
-#experiences div div .sass::after {
+#experiences .project .icons .sass::after {
   content: "SASS";
   position: absolute;
   color: #777777;
@@ -422,7 +460,7 @@ h1, h2, h3, h4, h5, h6, p, span {
   opacity: 0;
   transition: all 0.5s;
 }
-#experiences div div .js::after {
+#experiences .project .icons .js::after {
   content: "JavaScript";
   position: absolute;
   color: #777777;
@@ -432,7 +470,7 @@ h1, h2, h3, h4, h5, h6, p, span {
   opacity: 0;
   transition: all 0.5s;
 }
-#experiences div div .git::after {
+#experiences .project .icons .git::after {
   content: "Git";
   position: absolute;
   color: #777777;
@@ -442,7 +480,7 @@ h1, h2, h3, h4, h5, h6, p, span {
   opacity: 0;
   transition: all 0.5s;
 }
-#experiences div div .css3::after {
+#experiences .project .icons .css3::after {
   content: "CSS3";
   position: absolute;
   color: #777777;
@@ -452,7 +490,7 @@ h1, h2, h3, h4, h5, h6, p, span {
   opacity: 0;
   transition: all 0.5s;
 }
-#experiences div div .react::after {
+#experiences .project .icons .react::after {
   content: "React Js";
   position: absolute;
   color: #777777;
@@ -462,7 +500,7 @@ h1, h2, h3, h4, h5, h6, p, span {
   opacity: 0;
   transition: all 0.5s;
 }
-#experiences div div .photoshop::after {
+#experiences .project .icons .photoshop::after {
   content: "Photoshop";
   position: absolute;
   color: #777777;
@@ -472,7 +510,7 @@ h1, h2, h3, h4, h5, h6, p, span {
   opacity: 0;
   transition: all 0.5s;
 }
-#experiences div div .firebase::after {
+#experiences .project .icons .firebase::after {
   content: "Firebase";
   position: absolute;
   color: #777777;

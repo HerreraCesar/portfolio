@@ -1,143 +1,184 @@
 @import "../variables.scss";
 
 #experiences {
-    position: absolute;
-    top: 15vh;
-    left: 0;
-    width: 100vw;
-    padding: 0 5rem;
-    height: 70vh;
-    overflow: hidden;
-    display: grid;
-    transition: all 1s ease-in-out;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 1fr;
-    grid-gap: 2rem;
-    justify-content: center;
-    align-items: center;
-    div {
-        overflow: hidden;
+    transform: translateX(-180rem);
+    z-index: -1;
+  position: absolute;
+  top: 15vh;
+  left: 0;
+  width: 140vw;
+  padding: 0 5rem;
+  height: 70vh;
+  //overflow: hidden;
+  display: grid;
+  //transition: all 1s ease-in-out;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr;
+  grid-gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  .project {
+    border-radius: $curve;
+    .screenshot {
+      position: relative;
+      transition: all 0.3s ease-in-out;
+      z-index: 5;
+      img {
+        transition: all 0.3s ease-in-out;
+        width: 100%;
         border-radius: $curve;
-        img {
-            background-position: center;
-            width:100%;
-            border-radius: $curve;
+      }
+      .links {
+        position: absolute;
+        right: 10px;
+        top: calc(50% - 10px);
+        width: 100%;
+        display: none;
+        flex-flow: column nowrap;
+        align-items: flex-end;
+        a {
+          margin-bottom: 3px;
+          backdrop-filter: blur($blur);
+          font-weight: bolder;
+          z-index: 20;
+          color: $light;
+          padding: 5px;
+          box-shadow: 0 0 5px $shadow;
+          transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
         }
-        h3 {
-            font-family: $ubuntu;
-            font-size: 20px;
-            margin-top: 10px;
-            font-weight: 100;
-            
+        a:hover {
+          color: $dark;
+          background-color: $primary;
         }
-        div {
-            display: flex;
-            flex-flow: row nowrap;
-            align-items: center;
-            div {
-                transition: all 0.5s;
-                img {
-                    margin-top: 10px;
-                    margin-right: 10px;
-                    width: 20px;
-                    filter: invert(1) opacity(0.5) saturate(0);
-                }
-
-            }
-            div:hover {
-                margin-right: 50px;
-                &::after {
-                    margin-right: 10px;
-                    transform: translateX(30px);
-                    opacity: 1;
-                }
-            }
-            .react:hover {
-                margin-right: 90px;
-            }
-            .firebase:hover {
-                margin-right: 90px;
-            }
-            .html::after {
-                content: 'HTML';
-                position: absolute;
-                color: $placeholder;
-                font-size: 16px;
-                margin-right: 0;
-                margin-top: 10px;
-                opacity: 0;
-                transition: all 0.5s;
-            }
-            .sass::after {
-                content: 'SASS';
-                position: absolute;
-                color: $placeholder;
-                font-size: 16px;
-                margin-right: 10px;
-                margin-top: 10px;
-                opacity: 0;
-                transition: all 0.5s;
-            }
-            .js::after {
-                content: 'JavaScript';
-                position: absolute;
-                color: $placeholder;
-                font-size: 16px;
-                margin-right: 10px;
-                margin-top: 10px;
-                opacity: 0;
-                transition: all 0.5s;
-            }
-            .git::after {
-                content: 'Git';
-                position: absolute;
-                color: $placeholder;
-                font-size: 16px;
-                margin-right: 10px;
-                margin-top: 10px;
-                opacity: 0;
-                transition: all 0.5s;
-            }
-            .css3::after {
-                content: 'CSS3';
-                position: absolute;
-                color: $placeholder;
-                font-size: 16px;
-                margin-right: 10px;
-                margin-top: 10px;
-                opacity: 0;
-                transition: all 0.5s;
-            }
-            .react::after {
-                content: 'React Js';
-                position: absolute;
-                color: $placeholder;
-                font-size: 16px;
-                margin-right: 10px;
-                margin-top: 10px;
-                opacity: 0;
-                transition: all 0.5s;
-            }
-            .photoshop::after {
-                content: 'Photoshop';
-                position: absolute;
-                color: $placeholder;
-                font-size: 16px;
-                margin-right: 10px;
-                margin-top: 10px;
-                opacity: 0;
-                transition: all 0.5s;
-            }
-            .firebase::after {
-                content: 'Firebase';
-                position: absolute;
-                color: $placeholder;
-                font-size: 16px;
-                margin-right: 10px;
-                margin-top: 10px;
-                opacity: 0;
-                transition: all 0.5s;
-            }
-        }
+      }
     }
+    .screenshot:hover {
+      z-index: 10;
+      transform: scale(2);
+      transform-origin: 50% 40%;
+      img {
+        box-shadow: 0 0 15px $shadow;
+      }
+
+      .links {
+        display: flex;
+      }
+    }
+    h3 {
+      font-family: $ubuntu;
+      font-size: 20px;
+      margin-top: 10px;
+      font-weight: 100;
+    }
+    .icons {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      position: relative;
+      div {
+        transition: all 0.5s;
+        //position: relative;
+        img {
+          margin-top: 10px;
+          margin-right: 10px;
+          width: 20px;
+          filter: invert(1) opacity(0.5) saturate(0);
+        }
+      }
+      div:hover {
+        margin-right: 50px;
+        &::after {
+          margin-right: 10px;
+          //transform: translateX(30px);
+          opacity: 1;
+        }
+      }
+      .react:hover {
+        margin-right: 90px;
+      }
+      .firebase:hover {
+        margin-right: 90px;
+      }
+      .html::after {
+        content: "HTML";
+        position: absolute;
+        color: $placeholder;
+        font-size: 16px;
+        margin-right: 0;
+        margin-top: 10px;
+        opacity: 0;
+        transition: all 0.5s;
+      }
+      .sass::after {
+        content: "SASS";
+        position: absolute;
+        color: $placeholder;
+        font-size: 16px;
+        margin-right: 10px;
+        margin-top: 10px;
+        opacity: 0;
+        transition: all 0.5s;
+      }
+      .js::after {
+        content: "JavaScript";
+        position: absolute;
+        color: $placeholder;
+        font-size: 16px;
+        margin-right: 10px;
+        margin-top: 10px;
+        opacity: 0;
+        transition: all 0.5s;
+      }
+      .git::after {
+        content: "Git";
+        position: absolute;
+        color: $placeholder;
+        font-size: 16px;
+        margin-right: 10px;
+        margin-top: 10px;
+        opacity: 0;
+        transition: all 0.5s;
+      }
+      .css3::after {
+        content: "CSS3";
+        position: absolute;
+        color: $placeholder;
+        font-size: 16px;
+        margin-right: 10px;
+        margin-top: 10px;
+        opacity: 0;
+        transition: all 0.5s;
+      }
+      .react::after {
+        content: "React Js";
+        position: absolute;
+        color: $placeholder;
+        font-size: 16px;
+        margin-right: 10px;
+        margin-top: 10px;
+        opacity: 0;
+        transition: all 0.5s;
+      }
+      .photoshop::after {
+        content: "Photoshop";
+        position: absolute;
+        color: $placeholder;
+        font-size: 16px;
+        margin-right: 10px;
+        margin-top: 10px;
+        opacity: 0;
+        transition: all 0.5s;
+      }
+      .firebase::after {
+        content: "Firebase";
+        position: absolute;
+        color: $placeholder;
+        font-size: 16px;
+        margin-right: 10px;
+        margin-top: 10px;
+        opacity: 0;
+        transition: all 0.5s;
+      }
+    }
+  }
 }
