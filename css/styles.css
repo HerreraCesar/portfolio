@@ -344,7 +344,7 @@ h1, h2, h3, h4, h5, h6, p, span {
 }
 
 #experiences {
-  transform: translateX(-180rem);
+  transform: translateX(-220rem);
   z-index: -1;
   position: absolute;
   top: 15vh;
@@ -355,7 +355,7 @@ h1, h2, h3, h4, h5, h6, p, span {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: 1fr;
-  grid-gap: 2rem;
+  grid-gap: 5rem;
   justify-content: center;
   align-items: center;
 }

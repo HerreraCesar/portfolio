@@ -1,7 +1,7 @@
 @import "../variables.scss";
 
 #experiences {
-    transform: translateX(-180rem);
+    transform: translateX(-220rem);
     z-index: -1;
   position: absolute;
   top: 15vh;
@@ -14,7 +14,7 @@
   //transition: all 1s ease-in-out;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: 1fr;
-  grid-gap: 2rem;
+  grid-gap: 5rem;
   justify-content: center;
   align-items: center;
   .project {

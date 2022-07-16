@@ -561,7 +561,61 @@ comenzar.addEventListener("click", () => {
         `;
       }
       if (progress >= 342) {
-        experiences.style.transform = `translateX(${-150 + ((progress-342)*5)}rem)`
+        experiences.style.transform = `translateX(${-220 + ((progress-342)*5)}rem)`
+      }
+      if (progress >= 417) {
+        experiences.style.transform = `translateX(155rem)`
+      }
+      if (progress >= 418) {
+        text.innerHTML = base + "/experience";
+      }
+      if (progress >= 419) {
+        text.innerHTML = base + "/experienc";
+      }
+      if (progress >= 420) {
+        text.innerHTML = base + "/experien";
+      }
+      if (progress >= 421) {
+        text.innerHTML = base + "/experie";
+      }
+      if (progress >= 422) {
+        text.innerHTML = base + "/experi";
+      }
+      if (progress >= 423) {
+        text.innerHTML = base + "/exper";
+      }
+      if (progress >= 424) {
+        text.innerHTML = base + "/expe";
+      }
+      if (progress >= 425) {
+        text.innerHTML = base + "/exp";
+      }
+      if (progress >= 426) {
+        text.innerHTML = base + "/ex";
+      }
+      if (progress >= 427) {
+        text.innerHTML = base + "/e";
+      }
+      if (progress >= 428) {
+        text.innerHTML = base + "/c";
+      }
+      if (progress >= 429) {
+        text.innerHTML = base + "/co";
+      }
+      if (progress >= 430) {
+        text.innerHTML = base + "/con";
+      }
+      if (progress >= 431) {
+        text.innerHTML = base + "/cont";
+      }
+      if (progress >= 432) {
+        text.innerHTML = base + "/conta";
+      }
+      if (progress >= 433) {
+        text.innerHTML = base + "/contac";
+      }
+      if (progress >= 434) {
+        text.innerHTML = base + "/contact";
       }
     });
   }, 4850);
