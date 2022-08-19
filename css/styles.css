@@ -25,7 +25,7 @@ body {
   overflow: hidden;
 }
 
-#description {
+#instruction {
   position: fixed;
   width: 100vw;
   bottom: 5rem;
@@ -35,7 +35,7 @@ body {
   z-index: 15;
   animation: flash 2s infinite;
 }
-#description p {
+#instruction p {
   font-size: 1.5rem;
   font-weight: 200;
 }
@@ -58,7 +58,7 @@ body {
   height: 100vh;
 }
 
-.active {
+.inactive {
   opacity: 0;
 }
 
@@ -247,28 +247,40 @@ h1, h2, h3, h4, h5, h6, p, span {
   transform: translateY(5rem);
 }
 #about #data a {
+  transition: all 0.3s;
   transform: translateY(5rem);
   width: 16rem;
   display: flex;
   color: #fffb95;
   font-size: 2.4rem;
   padding: 1rem 0;
-  box-shadow: inset 0 0 0 0 transparent;
-  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 #about #data a img {
-  transition: filter 0.5s;
+  transition: all 0.3s;
   filter: invert(1);
   width: 2.4rem;
   margin-left: 1.5rem;
 }
+#about #data a::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  right: 100%;
+  bottom: 0;
+  background-color: #fffb95;
+  transition: all 0.3s;
+  z-index: -1;
+}
 #about #data a:hover {
   font-weight: 600;
   color: #222222;
-  box-shadow: inset 16rem 0 0 0 #fffb95;
 }
 #about #data a:hover img {
   filter: invert(0);
+}
+#about #data a:hover::after {
+  right: 0;
 }
 #about #profile {
   margin-left: 10rem;
@@ -310,7 +322,7 @@ h1, h2, h3, h4, h5, h6, p, span {
   width: 100%;
   height: auto;
   gap: 20rem;
-  transform: translateY(60rem);
+  transform: translateY(80vh);
 }
 #skills #technologies div {
   width: 100%;
@@ -333,7 +345,7 @@ h1, h2, h3, h4, h5, h6, p, span {
   flex-direction: column;
   position: absolute;
   align-items: center;
-  transform: translateY(40rem);
+  transform: translateY(70vh);
   z-index: -1;
 }
 #skills #back h3 {
@@ -373,25 +385,44 @@ h1, h2, h3, h4, h5, h6, p, span {
   border-radius: 0.5rem;
 }
 #experiences .project .screenshot .links {
+  border-radius: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding-left: 50px;
+  padding-right: 15px;
+  backdrop-filter: blur(1rem);
   position: absolute;
-  right: 10px;
-  top: calc(50% - 10px);
-  width: 100%;
+  left: 90%;
+  top: 0%;
+  height: 99%;
+  width: 50%;
   display: none;
   flex-flow: column nowrap;
-  align-items: flex-end;
+  z-index: -1;
+  justify-content: space-between;
 }
-#experiences .project .screenshot .links a {
-  margin-bottom: 3px;
+#experiences .project .screenshot .links div h3 {
+  margin-bottom: 10px;
+}
+#experiences .project .screenshot .links div p {
+  margin-bottom: 20px;
+  font-size: 8px;
+}
+#experiences .project .screenshot .links div a {
+  justify-self: flex-end;
+  margin-bottom: 15px;
   backdrop-filter: blur(1rem);
   font-weight: bolder;
-  z-index: 20;
+  display: block;
   color: #ffffff;
   padding: 5px;
   box-shadow: 0 0 5px #000000;
   transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  border-radius: 0.5rem;
 }
-#experiences .project .screenshot .links a:hover {
+#experiences .project .screenshot .links div a:first-of-type {
+  margin-bottom: 10px;
+}
+#experiences .project .screenshot .links div a:hover {
   color: #222222;
   background-color: #fffb95;
 }
@@ -517,6 +548,95 @@ h1, h2, h3, h4, h5, h6, p, span {
   font-size: 16px;
   margin-right: 10px;
   margin-top: 10px;
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+#contact {
+  overflow: hidden;
+  position: absolute;
+  top: 15vh;
+  left: 0;
+  width: 100vw;
+  padding: 0 5rem;
+  height: 70vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+#contact #form {
+  transform: scale(81) translateX(-67px) translateY(-5px);
+}
+#contact #form h2 {
+  font-size: 78px;
+  font-weight: 900;
+  color: #fffb95;
+}
+#contact #form h1 {
+  font-size: 48px;
+  font-weight: 400;
+  margin-bottom: 30px;
+  border-bottom: 5px solid transparent;
+  transition: all 0.3s;
+  cursor: pointer;
+  position: relative;
+}
+#contact #form h1 img {
+  width: 48px;
+  filter: invert(1);
+}
+#contact #form h1::after {
+  content: "Copied";
+  border-radius: 0.5rem;
+  background-color: #777777;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 5px 10px;
+  position: absolute;
+  top: 10%;
+  right: 0;
+  opacity: 0;
+  transform: translateX(100%);
+}
+#contact #form h1:active::after {
+  opacity: 1;
+}
+#contact #form img {
+  margin-right: 20px;
+  filter: invert(1) opacity(0.5);
+  width: 48px;
+  cursor: pointer;
+}
+#contact #form div {
+  transition: all 0.5s;
+  display: inline;
+}
+#contact #form div:hover {
+  margin-right: 150px;
+}
+#contact #form div:hover::after {
+  margin-right: 10px;
+  opacity: 1;
+}
+#contact #form .linkedin::after {
+  content: "LinkedIn";
+  position: absolute;
+  color: #777777;
+  font-size: 28px;
+  margin-right: 0;
+  margin-top: 10px;
+  margin-left: -10px;
+  opacity: 0;
+  transition: all 0.5s;
+}
+#contact #form .github::after {
+  content: "GitHub";
+  position: absolute;
+  color: #777777;
+  font-size: 28px;
+  margin-right: 0;
+  margin-top: 10px;
+  margin-left: -10px;
   opacity: 0;
   transition: all 0.5s;
 }

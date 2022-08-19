@@ -30,7 +30,7 @@ body {
   overflow: hidden;
 }
 
-#description {
+#instruction {
   position: fixed;
   width: 100vw;
   bottom: 5rem;
@@ -63,7 +63,7 @@ body {
   height: 100vh;
 }
 
-.active {
+.inactive {
   opacity: 0;
 }
 
@@ -78,6 +78,7 @@ h1, h2, h3, h4, h5, h6, p, span {
 @import "./scss/about.scss";
 @import "./scss/skills.scss";
 @import "./scss/experiences.scss";
+@import "./scss/contact.scss";
 
 // RESPONSIVIDAD
 

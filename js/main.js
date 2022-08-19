@@ -25,6 +25,10 @@ function exitFullscreen() {
   }
 }
 
+function copyToClipboard() {
+  navigator.clipboard.writeText('herrera.cesar.arg@gmail.com')
+}
+
 // ADAPTACIÓN DEL VIDEO A LA VENTANA
 document.querySelector("#background video").src = `./assets/videos/1.mp4`;
 let width = window.innerWidth;
@@ -34,28 +38,6 @@ document.querySelector("#background video").style.transform = `scaleY(${
 })`;
 
 // LISTAS
-/* const pictureFilters = [
-  "blur(3px)",
-  "brightness(0.5)",
-  "brightness(2)",
-  "contrast(50%)",
-  "contrast(150%)",
-  "grayscale(100%)",
-  "hue-rotate(315deg)",
-  "hue-rotate(270deg)",
-  "hue-rotate(225deg)",
-  "hue-rotate(180deg)",
-  "hue-rotate(135deg)",
-  "hue-rotate(90deg)",
-  "hue-rotate(45deg)",
-  "invert(100%)",
-  "opacity(15%)",
-  "saturate(50%)",
-  "saturate(150%)",
-  "saturate(300%)",
-  "sepia(100%)",
-]; */
-
 const fonts = [
   "Roboto Mono",
   "Montserrat",
@@ -86,9 +68,11 @@ fullscreenButton.addEventListener("click", function () {
 });
 
 // OBTENCIÓN ELEMENTOS
-const description = document.querySelector("#description");
-const welcome = document.querySelector("#welcome");
 const comenzar = document.querySelector("#comenzar");
+const start = document.querySelector("#start");
+
+const instruction = document.querySelector("#instruction");
+const welcome = document.querySelector("#welcome");
 const span = document.querySelector("#span");
 const url = document.querySelector("#url");
 const text = document.querySelector("#text");
@@ -100,15 +84,16 @@ const technologies = document.querySelector("#technologies");
 const back = document.querySelector("#back");
 const experiences = document.querySelector("#experiences");
 const contact = document.querySelector("#contact");
+const form = document.querySelector("#form");
 
 // FLUJO PÁGINA
 
-comenzar.addEventListener("click", () => {
+start.addEventListener("click", () => {
   // ANIMACIÓN URL
   window.scroll(0, 0);
-  description.style.display = "none";
-  welcome.className = "section active";
-  let originalText = "https://herreracesar.dev";
+  instruction.style.display = "none";
+  welcome.className = "section inactive";
+  let originalText = "https://herreracesar.site";
   let characterArray = originalText.split("");
   let cont = 0;
   setTimeout(() => {
@@ -123,12 +108,11 @@ comenzar.addEventListener("click", () => {
   }, 1100);
 
   setTimeout(() => {
-    description.innerHTML = "<p>scroll to continue</p>";
-    description.style.display = "flex";
+    instruction.innerHTML = "<p>scroll to continue</p>";
+    instruction.style.display = "flex";
 
     // AVANCE SCROLL
-
-    let progress = 340;
+    let progress = 1;
     let event = new Event("wheel");
     let lastY;
     let currentY;
@@ -136,25 +120,26 @@ comenzar.addEventListener("click", () => {
       currentY = e.touches[0].clientY;
       window.dispatchEvent(event);
       lastY = currentY;
-      
     });
 
     window.addEventListener("wheel", (e) => {
-      let base = "https://herreracesar.dev";
+      let base = "https://herreracesar.site";
       if (e.deltaY) {
-        if (progress === 0 && e.deltaY < 0) {
+        if (progress === 1 && e.deltaY < 0) {
           return;
+        } else if (progress >= 480){
+          progress = progress-1
         } else {
-          progress += (e.deltaY / 125);
+          progress += e.deltaY / 125;
         }
       } else {
-        if ( progress > 0 || progress === 0) {
-          if (currentY > lastY && progress > 0){
+        if (progress > 0 || progress === 0) {
+          if (currentY > lastY && progress > 0) {
             --progress;
           } else if (currentY < lastY) {
             ++progress;
           }
-        } 
+        }
       }
       console.log(progress);
       if (progress < 10) {
@@ -185,22 +170,25 @@ comenzar.addEventListener("click", () => {
         about.innerHTML = `
           <div id="data">
             <h1 id='name'>César</h1>
-            <p>25-year-old <strong>Full Stack Developer</strong> student, technology lover. Among my interests are cinema, photography, statistics, music, cryptocurrencies, architecture and of course computer science. I am usually very <strong>curious, orderly and detailed</strong>. My studies taught me to <strong>work in a team</strong> and seek constant improvement and <strong>efficiency</strong>.Interested in progressing within the workplace to develop personally and <strong>continue growing.</strong></p>
-            <a href="./assets/pdfs/CV_Herrera_English.pdf" target="_blank">_Resume <img src="./assets/icons/open.svg" alt=""></a>
+            <p><strong>Full Stack Developer</strong> who loves technology. Among my interests are cinema, photography, statistics, architecture and computer science. I am a very <strong>curious person, orderly and detailed</strong>. My studies taught me to <strong>work as a team</strong> and seek constant improvement. Currently I am focused on progressing within the workplace to develop personally and <strong>continue growing</strong>.</p>
+            <a href="./assets/pdfs/CV_Herrera_Cesar_English.pdf" target="_blank">_Resume <img src="./assets/icons/open.svg" alt=""></a>
           </div>
           <img id="profile" src="./assets/images/profile.jpg" alt="profile picture">
         `;
         about.style.opacity = 1;
       }
       if (progress >= 18) {
-        document.querySelector("#profile").style.width = `${(progress-18)*1.5}%`;
-        document.querySelector("#name").style.transform = `translateY(${(progress-18-5)*-1}rem)`;
+        document.querySelector("#profile").style.width = `${
+          (progress - 18) * 1.5
+        }%`;
+        document.querySelector("#name").style.transform = `translateY(${
+          (progress - 18 - 5) * -1
+        }rem)`;
+        document.querySelector("#data p").style.opacity = 0;
       }
       if (progress >= 40) {
         document.querySelector("#data p").style.opacity = 1;
-        document.querySelector(
-          "#name"
-        ).style.transform = `translateY(-16rem)`;
+        document.querySelector("#name").style.transform = `translateY(-16rem)`;
         document.querySelector("#name").style.cursor = "pointer";
         document.querySelector("#name").addEventListener("click", () => {
           document.querySelector("#name").style.fontFamily =
@@ -209,6 +197,7 @@ comenzar.addEventListener("click", () => {
         document.querySelector("#profile").style.width = `33%`;
       }
       if (progress >= 42) {
+        document.querySelector("#profile").style.opacity = 1;
         document.querySelector("#profile").style.width = `${
           33 - (progress - 42)
         }%`;
@@ -225,9 +214,7 @@ comenzar.addEventListener("click", () => {
         curtain.style.top = `calc(50vh - (${(progress - 75) * 2}vw)/2)`;
         curtain.style.width = `${(progress - 75) * 2}vw`;
         curtain.style.height = `${(progress - 75) * 2}vw`;
-        curtain.style.boxShadow = `-${
-          (progress - 75) / 6
-        }vw 0px 30px black`;
+        curtain.style.boxShadow = `-${(progress - 75) / 6}vw 0px 30px black`;
       }
       if (progress >= 127) {
         about.innerHTML = "";
@@ -374,76 +361,137 @@ comenzar.addEventListener("click", () => {
       }
       if (progress >= 142) {
         technologies.style.transform = `translateY(${
-          60 + ((progress - 142)*-3)
-        }rem)`;
-        back.style.transform = `translateY(${
-          40 + ((progress - 142)*-2)
-        }rem)`;
+          100 + (progress - 142) * -6
+        }vh)`;
+        back.style.transform = `translateY(${65 + (progress - 142) * -4}vh)`;
       }
-      if (progress >= 323) {
-        technologies.style.transform = `translateY(-483rem)`;
-        back.style.transform = `translateY(-322rem)`;
+      if (progress >= 274) {
+        technologies.style.transform = `translateY(-697vh)`;
+        back.style.transform = `translateY(-463vh)`;
       }
-      if (progress >= 324) {
+      if (progress >= 275) {
         text.innerHTML = base + "/skill";
       }
-      if (progress >= 325) {
+      if (progress >= 276) {
         text.innerHTML = base + "/skil";
       }
-      if (progress >= 326) {
+      if (progress >= 277) {
         text.innerHTML = base + "/ski";
       }
-      if (progress >= 327) {
+      if (progress >= 278) {
         text.innerHTML = base + "/sk";
       }
-      if (progress >= 328) {
+      if (progress >= 279) {
         text.innerHTML = base + "/s";
       }
-      if (progress >= 329) {
+      if (progress >= 280) {
         text.innerHTML = base + "/";
       }
-      if (progress >= 330) {
+      if (progress >= 281) {
         text.innerHTML = base + "/e";
       }
-      if (progress >= 331) {
+      if (progress >= 282) {
         text.innerHTML = base + "/ex";
       }
-      if (progress >= 332) {
+      if (progress >= 283) {
         text.innerHTML = base + "/exp";
       }
-      if (progress >= 333) {
+      if (progress >= 284) {
         text.innerHTML = base + "/expe";
       }
-      if (progress >= 334) {
+      if (progress >= 285) {
         text.innerHTML = base + "/exper";
       }
-      if (progress >= 335) {
+      if (progress >= 286) {
         text.innerHTML = base + "/experi";
       }
-      if (progress >= 336) {
+      if (progress >= 287) {
         text.innerHTML = base + "/experie";
       }
-      if (progress >= 337) {
+      if (progress >= 288) {
         text.innerHTML = base + "/experien";
       }
-      if (progress >= 338) {
+      if (progress >= 289) {
         text.innerHTML = base + "/experienc";
       }
-      if (progress >= 339) {
+      if (progress >= 290) {
         text.innerHTML = base + "/experience";
       }
-      if (progress >= 340) {
+      if (progress >= 291) {
         text.innerHTML = base + "/experiences";
       }
-      if (progress >= 341) {
-        experiences.style.zIndex = 1
+      if (progress >= 292) {
+        experiences.style.zIndex = 1;
         experiences.innerHTML = `
           <div class='project'>
-            <div class='screenshot'>
-              <img src="./assets/images/1000movies.png" alt="1000movies">
+            <div  class='screenshot'>
+              <img src="./assets/images/stail.jpg" alt="stail">
               <div class='links'>
-                <a href='https://github.com/HerreraCesar/movies-website' target='_blank'>_Repository </a>
-                <a href='https://herreracesar.github.io/movies-website/' target='_blank'>_Deploy </a>
+                <div>
+                  <h3>Stail Iluminación</h3>
+                  <p>Website made during the development of the Coderhouse Web Development course.</p>
+                </div>
+                <div>
+                  <a href='https://github.com/HerreraCesar/lighting-store' target='_blank'>_Repository </a>
+                  <a href='https://stail.netlify.app/' target='_blank'>_Deploy </a>
+                </div>
+              </div>
+            </div>
+            <h3>Stail Iluminación</h3>
+            <div class='icons'>
+              <div class='html'>
+                <img src="./assets/icons/html5.svg" alt="html">
+              </div>
+              <div class='sass'>
+                <img src="./assets/icons/sass.svg" alt="sass">
+              </div>
+              <div class='git'>
+                <img src="./assets/icons/git.svg" alt="git">
+              </div>
+            </div>
+          </div>
+          <div class='project'>
+            <div  class='screenshot'>
+              <img src="./assets/images/sergalgos.jpg" alt="sergalgos">
+              <div class='links'>
+                <div>
+                  <h3>Ser Galgos</h3>
+                  <p>Realization of website with HTML, CSS and JavaScript Vanilla for Ser Galgos.</p>
+                </div>
+                <div>
+                  <a href='https://github.com/HerreraCesar/ser-galgos' target='_blank'>_Repository </a>
+                  <a href='https://sergalgos.netlify.app/' target='_blank'>_Deploy </a>
+                </div>
+              </div>
+            </div>
+            <h3>Ser Galgos</h3>
+            <div class='icons'>
+              <div class='html'>
+                <img src="./assets/icons/html5.svg" alt="html">
+              </div>
+              <div class='css3'>
+                <img src="./assets/icons/css3.svg" alt="css3">
+              </div>
+              <div class='git'>
+                <img src="./assets/icons/git.svg" alt="git">
+              </div>
+              <div class='js'>
+                <img src="./assets/icons/js.svg" alt="js">
+              </div>
+            </div>
+          </div>
+          <div class='project'>
+            <div class='screenshot'>
+              <img src="./assets/images/1000movies.jpg" alt="1000movies">
+              <div class='links'>
+                <div>
+                  <h3>1000 Movies</h3>
+                  <p>Website made during the development of the Coderhouse JavaScript course.</p>
+                </div>
+                <div>
+                  <a href='https://github.com/HerreraCesar/movies-website' target='_blank'>_Repository </a>
+                  <a href='https://milpelis.netlify.app/' target='_blank'>_Deploy </a>
+                </div>
               </div>
             </div>
             <h3>1000 Movies</h3>
@@ -464,10 +512,16 @@ comenzar.addEventListener("click", () => {
           </div>
           <div class='project'>
             <div class='screenshot'>
-              <img src="./assets/images/pcentrix.png" alt="pcentrix">
+              <img src="./assets/images/pcentrix.jpg" alt="pcentrix">
               <div class='links'>
-                <a href='https://github.com/HerreraCesar/pcentrix' target='_blank'>_Repository </a>
-                <a href='https://pcentrix.netlify.app/' target='_blank'>_Deploy </a>
+                <div>
+                  <h3>Pcentrix</h3>
+                  <p>Realization of landing page with HTML, SASS and JavaScript Vanilla for Pcentrix.</p>
+                </div>
+                <div>
+                  <a href='https://github.com/HerreraCesar/pcentrix' target='_blank'>_Repository </a>
+                  <a href='https://pcentrix.netlify.app/' target='_blank'>_Deploy </a>
+                </div>
               </div>
             </div>
             <h3>Pcentrix</h3>
@@ -488,34 +542,16 @@ comenzar.addEventListener("click", () => {
           </div>
           <div class='project'>
             <div  class='screenshot'>
-              <img src="./assets/images/sergalgos.png" alt="sergalgos">
+              <img src="./assets/images/basicstore.jpg" alt="basicstore">
               <div class='links'>
-                <a href='https://github.com/HerreraCesar/ser-galgos' target='_blank'>_Repository </a>
-                <a href='https://sergalgos.netlify.app/' target='_blank'>_Deploy </a>
-              </div>
-            </div>
-            <h3>Ser Galgos</h3>
-            <div class='icons'>
-              <div class='html'>
-                <img src="./assets/icons/html5.svg" alt="html">
-              </div>
-              <div class='css3'>
-                <img src="./assets/icons/css3.svg" alt="css3">
-              </div>
-              <div class='git'>
-                <img src="./assets/icons/git.svg" alt="git">
-              </div>
-              <div class='js'>
-                <img src="./assets/icons/js.svg" alt="js">
-              </div>
-            </div>
-          </div>
-          <div class='project'>
-            <div  class='screenshot'>
-              <img src="./assets/images/basicstore.png" alt="basicstore">
-              <div class='links'>
-                <a href='https://github.com/HerreraCesar/basics-store' target='_blank'>_Repository </a>
-                <a href='https://basics-store.netlify.app/' target='_blank'>_Deploy </a>
+                <div>
+                  <h3>Basics Store</h3>
+                  <p>E-commerce made during the development of the Coderhouse React JS course.</p>
+                </div>
+                <div>
+                  <a href='https://github.com/HerreraCesar/basics-store' target='_blank'>_Repository </a>
+                  <a href='https://basics-store.netlify.app/' target='_blank'>_Deploy </a>
+                </div>
               </div>
             </div>
             <h3>Basics Store</h3>
@@ -537,86 +573,100 @@ comenzar.addEventListener("click", () => {
               </div>
             </div>
           </div>
-          <div class='project'>
-            <div  class='screenshot'>
-              <img src="./assets/images/stail.png" alt="stail">
-              <div class='links'>
-                <a href='https://github.com/HerreraCesar/lighting-store' target='_blank'>_Repository </a>
-                <a href='https://herreracesar.github.io/lighting-store/' target='_blank'>_Deploy </a>
-              </div>
-            </div>
-            <h3>Stail Iluminación</h3>
-            <div class='icons'>
-              <div class='html'>
-                <img src="./assets/icons/html5.svg" alt="html">
-              </div>
-              <div class='sass'>
-                <img src="./assets/icons/sass.svg" alt="sass">
-              </div>
-              <div class='git'>
-                <img src="./assets/icons/git.svg" alt="git">
-              </div>
-            </div>
-          </div>
         `;
       }
-      if (progress >= 342) {
-        experiences.style.transform = `translateX(${-220 + ((progress-342)*5)}rem)`
+      if (progress >= 293) {
+        experiences.style.transform = `translateX(${
+          -220 + (progress - 293) * 5
+        }rem)`;
       }
-      if (progress >= 417) {
-        experiences.style.transform = `translateX(155rem)`
+      if (progress >= 368) {
+        experiences.style.transform = `translateX(155rem)`;
       }
-      if (progress >= 418) {
+      if (progress >= 369) {
         text.innerHTML = base + "/experience";
       }
-      if (progress >= 419) {
+      if (progress >= 370) {
         text.innerHTML = base + "/experienc";
       }
-      if (progress >= 420) {
+      if (progress >= 371) {
         text.innerHTML = base + "/experien";
       }
-      if (progress >= 421) {
+      if (progress >= 372) {
         text.innerHTML = base + "/experie";
       }
-      if (progress >= 422) {
+      if (progress >= 373) {
         text.innerHTML = base + "/experi";
       }
-      if (progress >= 423) {
+      if (progress >= 374) {
         text.innerHTML = base + "/exper";
       }
-      if (progress >= 424) {
+      if (progress >= 375) {
         text.innerHTML = base + "/expe";
       }
-      if (progress >= 425) {
+      if (progress >= 376) {
         text.innerHTML = base + "/exp";
       }
-      if (progress >= 426) {
+      if (progress >= 377) {
         text.innerHTML = base + "/ex";
       }
-      if (progress >= 427) {
+      if (progress >= 378) {
         text.innerHTML = base + "/e";
       }
-      if (progress >= 428) {
+      if (progress >= 379) {
         text.innerHTML = base + "/c";
       }
-      if (progress >= 429) {
+      if (progress >= 380) {
         text.innerHTML = base + "/co";
       }
-      if (progress >= 430) {
+      if (progress >= 381) {
         text.innerHTML = base + "/con";
       }
-      if (progress >= 431) {
+      if (progress >= 382) {
         text.innerHTML = base + "/cont";
       }
-      if (progress >= 432) {
+      if (progress >= 383) {
         text.innerHTML = base + "/conta";
       }
-      if (progress >= 433) {
+      if (progress >= 384) {
         text.innerHTML = base + "/contac";
       }
-      if (progress >= 434) {
+      if (progress >= 385) {
         text.innerHTML = base + "/contact";
+        contact.style.display = 'none'
+      }
+      if (progress >= 386) {
+        form.innerHTML = `<h2>Let's talk!</h2>
+        <h1 onclick="copyToClipboard()">
+          herrera.cesar.arg@gmail.com
+          <img src="./assets/icons/clone.svg" alt="" />
+        </h1>
+        <div class="linkedin">
+          <a
+            href="https://www.linkedin.com/in/herrera-cesar/"
+            target="_blank"
+            ><img src="./assets/icons/linkedin.svg" alt="linkedin"
+          /></a>
+        </div>
+        <div class="github">
+          <a href="https://github.com/HerreraCesar" target="_blank"
+            ><img src="./assets/icons/github.svg" alt="github"
+          /></a>
+        </div>`;
+        contact.style.display = 'flex'
+      }
+      if (progress >= 387) {
+        form.style.transform = `scale(${
+          81 - (progress - 387) * 2
+        }) translateX(-67px) translateY(-5px)`;
+        instruction.innerHTML = "<p>scroll to continue</p>";
+        instruction.style.animation = 'flash 2s infinite'
+      }
+      if (progress >= 427) {
+        form.style.transform = `scale(1) translateX(-67px) translateY(-5px)`;
+        instruction.innerHTML = "<p>thanks for watching</p>";
+        instruction.style.animation = 'none'
       }
     });
-  }, 4850);
+  }, 5000);
 });

@@ -41,27 +41,39 @@
       transform: translateY(5rem);
     }
     a {
+      transition: all 0.3s;
       transform: translateY(5rem);
       width: 16rem;
       display: flex;
       color: $primary;
       font-size: 2.4rem;
       padding: 1rem 0;
-      box-shadow: inset 0 0 0 0 transparent;
-      transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
       img {
-        transition: filter 0.5s;
+        transition: all 0.3s;
         filter: invert(1);
         width: 2.4rem;
         margin-left: 1.5rem;
       }
     }
+    a::after {
+      position: absolute;
+      content: "";
+      left: 0;
+      top: 0;
+      right: 100%;
+      bottom: 0;
+      background-color: $primary;
+      transition: all 0.3s;
+      z-index: -1;
+    }
     a:hover {
       font-weight: 600;
       color: $dark;
-      box-shadow: inset 16rem 0 0 0 $primary;
       img {
         filter: invert(0);
+      }
+      &::after {
+        right: 0;
       }
     }
   }
