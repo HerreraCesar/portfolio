@@ -66,6 +66,21 @@ h1, h2, h3, h4, h5, h6, p, span {
   color: #ffffff;
 }
 
+.progress-bar {
+  z-index: 20;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 5px;
+}
+
+.progress {
+  width: 0%;
+  height: 100%;
+  background-color: #fffb95;
+  border-radius: 0.5rem;
+}
+
 #welcome {
   position: fixed;
   top: 0;
@@ -156,6 +171,21 @@ h1, h2, h3, h4, h5, h6, p, span {
 }
 #welcome .data .social a :hover {
   transform: scale(1.5);
+}
+#welcome .data .social #email::after {
+  content: "Copied";
+  border-radius: 0.5rem;
+  background-color: #777777;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 5px 10px;
+  position: absolute;
+  top: 30px;
+  opacity: 0;
+  transform: translateX(-140%);
+}
+#welcome .data .social #email:active::after {
+  opacity: 1;
 }
 
 #background {
@@ -639,6 +669,574 @@ h1, h2, h3, h4, h5, h6, p, span {
   margin-left: -10px;
   opacity: 0;
   transition: all 0.5s;
+}
+
+@media screen and (max-aspect-ratio: 10/8) {
+  /* #container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    } */
+  #welcome {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: #222222;
+    transition: all 1s ease-in-out;
+  }
+  #welcome .data {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+  }
+  #welcome .data .title {
+    padding: 0 3rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    backdrop-filter: blur(1rem);
+    height: 40vh;
+    width: 80vw;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+  }
+  #welcome .data .title h2 {
+    font-size: 2.3rem;
+    font-weight: 600;
+    font-family: "Montserrat";
+    color: rgb(166, 166, 166);
+    margin-bottom: 10px;
+  }
+  #welcome .data .title h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    font-family: "Montserrat";
+  }
+  #welcome .data .buttons {
+    margin-top: 50px;
+    width: 100vw;
+    margin-left: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+  }
+  #welcome .data .buttons button {
+    transform: all 0.3s;
+    color: #ffffff;
+    font-size: 2.5rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: "Roboto Mono";
+    font-weight: 300;
+  }
+  #welcome .data .buttons button:hover {
+    font-style: italic;
+    color: #fffb95;
+  }
+  #welcome .data .social {
+    height: auto;
+    width: 80vw;
+    position: fixed;
+    top: 0;
+    left: 10vw;
+    z-index: 15;
+    border-radius: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(1rem);
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-around;
+    padding: 2rem;
+  }
+  #welcome .data .social a img {
+    filter: invert(1) opacity(0.8);
+    width: 2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  #welcome .data .social a:last-child {
+    transform: scale(1.5);
+  }
+  #welcome .data .social a :hover {
+    transform: scale(1.5);
+  }
+  #welcome .data .social #email::after {
+    content: "Copied";
+    border-radius: 0.5rem;
+    background-color: #777777;
+    color: #ffffff;
+    font-size: 18px;
+    padding: 5px 10px;
+    position: absolute;
+    top: 6rem;
+    opacity: 0;
+    transform: translateX(-60%);
+  }
+  #welcome .data .social #email:active::after {
+    opacity: 1;
+  }
+
+  #background {
+    display: none;
+  }
+
+  #beginning {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  #beginning #text {
+    position: absolute;
+    font-size: 1.5rem;
+    margin-left: 3rem;
+    top: calc(50vh - 0.75rem);
+    z-index: 5;
+    border-right: 0.5rem solid #ffffff;
+    animation: parpadeo 1s infinite;
+  }
+
+  #about {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 3rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease-in-out;
+  }
+  #about #data h1 {
+    transform: translateY(5rem);
+    position: absolute;
+    top: calc(50vh - 2.5rem);
+    font-weight: bolder;
+    font-size: 5rem;
+    width: fit-content;
+    margin-bottom: 1rem;
+  }
+  #about #data h1::before {
+    position: absolute;
+    content: "César";
+    color: transparent;
+    transition: all 1s ease-in-out;
+    transform-origin: 100% 0%;
+  }
+  #about #data h1:hover::before {
+    transform: rotateY(-180deg);
+    color: hsla(58deg, 100%, 79%, 0.3);
+  }
+  #about #data p {
+    margin: 2rem 0;
+    width: 80vw;
+    font-weight: lighter;
+    opacity: 0;
+    font-size: 1.4rem;
+    transform: translateY(5rem);
+  }
+  #about #data a {
+    transition: all 0.3s;
+    transform: translateY(5rem);
+    width: 14rem;
+    display: flex;
+    color: #fffb95;
+    font-size: 2rem;
+    padding: 1rem 0;
+  }
+  #about #data a img {
+    transition: all 0.3s;
+    filter: invert(1);
+    width: 2.4rem;
+    margin-left: 1.5rem;
+  }
+  #about #data a::after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    right: 100%;
+    bottom: 0;
+    background-color: #fffb95;
+    transition: all 0.3s;
+    z-index: -1;
+  }
+  #about #data a:hover {
+    font-weight: 600;
+    color: #222222;
+  }
+  #about #data a:hover img {
+    filter: invert(0);
+  }
+  #about #data a:hover::after {
+    right: 0;
+  }
+  #about #profile {
+    display: none;
+  }
+
+  #curtain {
+    border-radius: 50%;
+    position: fixed;
+    left: 50vw;
+    top: 50vh;
+    width: 0%;
+    max-width: 120vh;
+    max-height: 120vh;
+    background-color: #222222;
+    box-shadow: 0px 0px 25px black;
+    z-index: 2;
+  }
+
+  #skills {
+    position: absolute;
+    top: 15vh;
+    left: 0;
+    width: 100vw;
+    padding: 0 3rem;
+    height: 70vh;
+    overflow: hidden;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    transition: all 1s ease-in-out;
+  }
+  #skills #technologies {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    gap: 20rem;
+    transform: translateY(80vh);
+  }
+  #skills #technologies div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #skills #technologies h3 {
+    font-size: 3rem;
+    text-align: end;
+    margin-right: 2rem;
+  }
+  #skills #technologies svg {
+    fill: #fffb95;
+    width: 10rem;
+    height: 10rem;
+  }
+  #skills #back {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    align-items: center;
+    transform: translateY(75vh);
+    z-index: -1;
+  }
+  #skills #back h3 {
+    margin-bottom: 7rem;
+    font-size: 10rem;
+    font-weight: bolder;
+    color: hsla(0deg, 0%, 33%, 0.3);
+  }
+
+  #experiences {
+    transform: translateX(-220rem);
+    z-index: -1;
+    position: absolute;
+    top: 15vh;
+    left: 0;
+    width: 200vw;
+    padding: 0 5rem;
+    height: 70vh;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
+    grid-gap: 5rem;
+    justify-content: center;
+    align-items: center;
+  }
+  #experiences .project {
+    border-radius: 0.5rem;
+  }
+  #experiences .project .screenshot {
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    z-index: 5;
+  }
+  #experiences .project .screenshot img {
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+    border-radius: 0.5rem;
+  }
+  #experiences .project .screenshot .links {
+    border-radius: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-left: 2rem;
+    padding-right: 2rem;
+    backdrop-filter: blur(1rem);
+    position: relative;
+    left: 0;
+    top: 0%;
+    height: 99%;
+    width: 70vw;
+    display: none;
+    flex-flow: column nowrap;
+    z-index: -1;
+    justify-content: space-between;
+  }
+  #experiences .project .screenshot .links div h3 {
+    margin-bottom: 10px;
+  }
+  #experiences .project .screenshot .links div p {
+    margin-bottom: 20px;
+    font-size: 8px;
+  }
+  #experiences .project .screenshot .links div a {
+    justify-self: flex-end;
+    margin-bottom: 15px;
+    backdrop-filter: blur(1rem);
+    font-weight: bolder;
+    display: block;
+    color: #ffffff;
+    padding: 5px;
+    box-shadow: 0 0 5px #000000;
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    border-radius: 0.5rem;
+  }
+  #experiences .project .screenshot .links div a:first-of-type {
+    margin-bottom: 10px;
+  }
+  #experiences .project .screenshot .links div a:hover {
+    color: #222222;
+    background-color: #fffb95;
+  }
+  #experiences .project .screenshot:hover {
+    z-index: 10;
+    transform: scale(1.2);
+    transform-origin: 50% 40%;
+  }
+  #experiences .project .screenshot:hover img {
+    box-shadow: 0 0 15px #000000;
+  }
+  #experiences .project .screenshot:hover .links {
+    display: flex;
+  }
+  #experiences .project h3 {
+    font-family: "Ubuntu";
+    font-size: 20px;
+    margin-top: 10px;
+    font-weight: 100;
+  }
+  #experiences .project .icons {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    position: relative;
+  }
+  #experiences .project .icons div {
+    transition: all 0.5s;
+  }
+  #experiences .project .icons div img {
+    margin-top: 10px;
+    margin-right: 10px;
+    width: 20px;
+    filter: invert(1) opacity(0.5) saturate(0);
+  }
+  #experiences .project .icons div:hover {
+    margin-right: 50px;
+  }
+  #experiences .project .icons div:hover::after {
+    margin-right: 10px;
+    opacity: 1;
+  }
+  #experiences .project .icons .react:hover {
+    margin-right: 90px;
+  }
+  #experiences .project .icons .firebase:hover {
+    margin-right: 90px;
+  }
+  #experiences .project .icons .html::after {
+    content: "HTML";
+    position: absolute;
+    color: #777777;
+    font-size: 16px;
+    margin-right: 0;
+    margin-top: 10px;
+    opacity: 0;
+    transition: all 0.5s;
+  }
+  #experiences .project .icons .sass::after {
+    content: "SASS";
+    position: absolute;
+    color: #777777;
+    font-size: 16px;
+    margin-right: 10px;
+    margin-top: 10px;
+    opacity: 0;
+    transition: all 0.5s;
+  }
+  #experiences .project .icons .js::after {
+    content: "JavaScript";
+    position: absolute;
+    color: #777777;
+    font-size: 16px;
+    margin-right: 10px;
+    margin-top: 10px;
+    opacity: 0;
+    transition: all 0.5s;
+  }
+  #experiences .project .icons .git::after {
+    content: "Git";
+    position: absolute;
+    color: #777777;
+    font-size: 16px;
+    margin-right: 10px;
+    margin-top: 10px;
+    opacity: 0;
+    transition: all 0.5s;
+  }
+  #experiences .project .icons .css3::after {
+    content: "CSS3";
+    position: absolute;
+    color: #777777;
+    font-size: 16px;
+    margin-right: 10px;
+    margin-top: 10px;
+    opacity: 0;
+    transition: all 0.5s;
+  }
+  #experiences .project .icons .react::after {
+    content: "React Js";
+    position: absolute;
+    color: #777777;
+    font-size: 16px;
+    margin-right: 10px;
+    margin-top: 10px;
+    opacity: 0;
+    transition: all 0.5s;
+  }
+  #experiences .project .icons .photoshop::after {
+    content: "Photoshop";
+    position: absolute;
+    color: #777777;
+    font-size: 16px;
+    margin-right: 10px;
+    margin-top: 10px;
+    opacity: 0;
+    transition: all 0.5s;
+  }
+  #experiences .project .icons .firebase::after {
+    content: "Firebase";
+    position: absolute;
+    color: #777777;
+    font-size: 16px;
+    margin-right: 10px;
+    margin-top: 10px;
+    opacity: 0;
+    transition: all 0.5s;
+  }
+
+  #contact {
+    overflow: hidden;
+    position: absolute;
+    top: 15vh;
+    left: 0;
+    width: 100vw;
+    padding: 0 3rem;
+    height: 70vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+  #contact #form {
+    transform: scale(81) translateX(0px) translateY(-5px);
+  }
+  #contact #form h2 {
+    font-size: 36px;
+    font-weight: 900;
+    color: #fffb95;
+  }
+  #contact #form h1 {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    border-bottom: 5px solid transparent;
+    transition: all 0.3s;
+    cursor: pointer;
+    position: relative;
+  }
+  #contact #form h1 img {
+    width: 16px;
+    filter: invert(1);
+  }
+  #contact #form h1::after {
+    content: "Copied";
+    border-radius: 0.5rem;
+    background-color: #777777;
+    color: #ffffff;
+    font-size: 10px;
+    padding: 5px 10px;
+    position: absolute;
+    top: 10%;
+    right: 0;
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  #contact #form h1:active::after {
+    opacity: 1;
+  }
+  #contact #form img {
+    margin-right: 20px;
+    filter: invert(1) opacity(0.5);
+    width: 20px;
+    cursor: pointer;
+  }
+  #contact #form div {
+    transition: all 0.5s;
+    display: inline;
+  }
+  #contact #form div:hover {
+    margin-right: 80px;
+  }
+  #contact #form div:hover::after {
+    margin-right: 10px;
+    opacity: 1;
+  }
+  #contact #form .linkedin::after {
+    content: "LinkedIn";
+    position: absolute;
+    color: #777777;
+    font-size: 14px;
+    margin-right: 0;
+    margin-top: 0px;
+    margin-left: -5px;
+    opacity: 0;
+    transition: all 0.5s;
+  }
+  #contact #form .github::after {
+    content: "GitHub";
+    position: absolute;
+    color: #777777;
+    font-size: 14px;
+    margin-right: 0;
+    margin-top: 0px;
+    margin-left: -5px;
+    opacity: 0;
+    transition: all 0.5s;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

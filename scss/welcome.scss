@@ -90,6 +90,21 @@
           transform: scale(1.5);
         }
       }
+      #email::after {
+        content: "Copied";
+        border-radius: $curve;
+        background-color: $placeholder;
+        color: $light;
+        font-size: 20px;
+        padding: 5px 10px;
+        position: absolute;
+        top: 30px;
+        opacity: 0;
+        transform: translateX(-140%);
+      }
+      #email:active::after {
+        opacity: 1;
+      }
     }
   }
 }

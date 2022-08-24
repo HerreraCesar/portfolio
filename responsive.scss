@@ -1,1 +1,582 @@
 @import "variables";
+
+@media screen and (max-aspect-ratio: 10/8) {
+  /* #container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    } */
+  #welcome {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: $dark;
+    transition: all 1s ease-in-out;
+    .data {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center;
+      z-index: 5;
+      .title {
+        padding: 0 3rem;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: $curve;
+        backdrop-filter: blur($blur);
+        height: 40vh;
+        width: 80vw;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        h2 {
+          font-size: 2.3rem;
+          font-weight: 600;
+          font-family: $montserrat;
+          color: rgb(166, 166, 166);
+          margin-bottom: 10px;
+        }
+        h1 {
+          font-size: 4rem;
+          font-weight: 900;
+          font-family: $montserrat;
+        }
+      }
+      .buttons {
+        margin-top: 50px;
+        width: 100vw;
+        margin-left: 0;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+        button {
+          transform: all 0.3s;
+          color: $light;
+          font-size: 2.5rem;
+          border: none;
+          background: none;
+          cursor: pointer;
+          font-family: $roboto;
+          font-weight: 300;
+        }
+        button:hover {
+          font-style: italic;
+          color: $primary;
+        }
+      }
+      .social {
+        height: auto;
+        width: 80vw;
+        position: fixed;
+        top: 0;
+        left: 10vw;
+        z-index: 15;
+        border-radius: $curve;
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur($blur);
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: space-around;
+        padding: 2rem;
+        a {
+          img {
+            filter: invert(1) opacity(0.8);
+            width: 2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+          }
+          &:last-child {
+            transform: scale(1.5);
+          }
+          & :hover {
+            transform: scale(1.5);
+          }
+        }
+        #email::after {
+          content: "Copied";
+          border-radius: $curve;
+          background-color: $placeholder;
+          color: $light;
+          font-size: 18px;
+          padding: 5px 10px;
+          position: absolute;
+          top: 6rem;
+          opacity: 0;
+          transform: translateX(-60%);
+        }
+        #email:active::after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  #background {
+    display: none;
+  }
+
+  #beginning {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    #text {
+      position: absolute;
+      font-size: 1.5rem;
+      margin-left: 3rem;
+      top: calc(50vh - 0.75rem);
+      z-index: 5;
+      border-right: 0.5rem solid $light;
+      animation: parpadeo 1s infinite;
+    }
+  }
+
+  #about {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 3rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease-in-out;
+    #data {
+      h1 {
+        transform: translateY(5rem);
+        position: absolute;
+        top: calc(50vh - 2.5rem);
+        font-weight: bolder;
+        font-size: 5rem;
+        width: fit-content;
+        margin-bottom: 1rem;
+      }
+      h1::before {
+        position: absolute;
+        content: "César";
+        color: transparent;
+        transition: all 1s ease-in-out;
+        transform-origin: 100% 0%;
+      }
+      h1:hover {
+        &::before {
+          transform: rotateY(-180deg);
+          color: hsla(58, 100%, 79%, 0.3);
+        }
+      }
+      p {
+        margin: 2rem 0;
+        width: 80vw;
+        font-weight: lighter;
+        opacity: 0;
+        font-size: 1.4rem;
+        transform: translateY(5rem);
+      }
+      a {
+        transition: all 0.3s;
+        transform: translateY(5rem);
+        width: 14rem;
+        display: flex;
+        color: $primary;
+        font-size: 2rem;
+        padding: 1rem 0;
+        img {
+          transition: all 0.3s;
+          filter: invert(1);
+          width: 2.4rem;
+          margin-left: 1.5rem;
+        }
+      }
+      a::after {
+        position: absolute;
+        content: "";
+        left: 0;
+        top: 0;
+        right: 100%;
+        bottom: 0;
+        background-color: $primary;
+        transition: all 0.3s;
+        z-index: -1;
+      }
+      a:hover {
+        font-weight: 600;
+        color: $dark;
+        img {
+          filter: invert(0);
+        }
+        &::after {
+          right: 0;
+        }
+      }
+    }
+    #profile {
+      display: none;
+    }
+  }
+  #curtain {
+    border-radius: 50%;
+    position: fixed;
+    //margin: auto;
+    left: 50vw;
+    top: 50vh;
+    width: 0%;
+    //text-align: center;
+    //justify-self: center;
+    max-width: 120vh;
+    max-height: 120vh;
+    background-color: $dark;
+    box-shadow: 0px 0px 25px black;
+    z-index: 2;
+  }
+  #skills {
+    position: absolute;
+    top: 15vh;
+    left: 0;
+    width: 100vw;
+    padding: 0 3rem;
+    height: 70vh;
+    overflow: hidden;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    transition: all 1s ease-in-out;
+    #technologies {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      width: 100%;
+      height: auto;
+      gap: 20rem;
+      transform: translateY(80vh);
+      div {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      h3 {
+        font-size: 3rem;
+        text-align: end;
+        margin-right: 2rem;
+      }
+      svg {
+        fill: $primary;
+        width: 10rem;
+        height: 10rem;
+      }
+    }
+    #back {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      align-items: center;
+      transform: translateY(75vh);
+      z-index: -1;
+      h3 {
+        margin-bottom: 7rem;
+        font-size: 10rem;
+        font-weight: bolder;
+        color: hsla(0, 0%, 33%, 0.3);
+      }
+    }
+  }
+  #experiences {
+    transform: translateX(-220rem);
+    z-index: -1;
+    position: absolute;
+    top: 15vh;
+    left: 0;
+    width: 200vw;
+    padding: 0 5rem;
+    height: 70vh;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
+    grid-gap: 5rem;
+    justify-content: center;
+    align-items: center;
+    .project {
+      border-radius: $curve;
+      .screenshot {
+        position: relative;
+        transition: all 0.3s ease-in-out;
+        z-index: 5;
+        img {
+          transition: all 0.3s ease-in-out;
+          width: 100%;
+          border-radius: $curve;
+        }
+        .links {
+          border-radius: $curve;
+          background-color: rgba(0, 0, 0, 0.4);
+          padding-left: 2rem;
+          padding-right: 2rem;
+          backdrop-filter: blur($blur);
+          position: relative;
+          left: 0;
+          top: 0%;
+          height: 99%;
+          width: 70vw;
+          display: none;
+          flex-flow: column nowrap;
+          z-index: -1;
+          justify-content: space-between;
+          div {
+            //height: 100%;
+
+            h3 {
+              margin-bottom: 10px;
+            }
+            p {
+              margin-bottom: 20px;
+              font-size: 8px;
+            }
+            a {
+              justify-self: flex-end;
+              margin-bottom: 15px;
+              backdrop-filter: blur($blur);
+              font-weight: bolder;
+              display: block;
+              //z-index: 20;
+              color: $light;
+              padding: 5px;
+              box-shadow: 0 0 5px $shadow;
+              transition: color 0.3s ease-in-out,
+                background-color 0.3s ease-in-out;
+              border-radius: $curve;
+            }
+            a:first-of-type {
+              margin-bottom: 10px;
+            }
+            a:hover {
+              color: $dark;
+              background-color: $primary;
+            }
+          }
+        }
+      }
+      .screenshot:hover {
+        z-index: 10;
+        transform: scale(1.2);
+        transform-origin: 50% 40%;
+        img {
+          box-shadow: 0 0 15px $shadow;
+        }
+        .links {
+          display: flex;
+        }
+      }
+      h3 {
+        font-family: $ubuntu;
+        font-size: 20px;
+        margin-top: 10px;
+        font-weight: 100;
+      }
+      .icons {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        position: relative;
+        div {
+          transition: all 0.5s;
+          img {
+            margin-top: 10px;
+            margin-right: 10px;
+            width: 20px;
+            filter: invert(1) opacity(0.5) saturate(0);
+          }
+        }
+        div:hover {
+          margin-right: 50px;
+          &::after {
+            margin-right: 10px;
+            opacity: 1;
+          }
+        }
+        .react:hover {
+          margin-right: 90px;
+        }
+        .firebase:hover {
+          margin-right: 90px;
+        }
+        .html::after {
+          content: "HTML";
+          position: absolute;
+          color: $placeholder;
+          font-size: 16px;
+          margin-right: 0;
+          margin-top: 10px;
+          opacity: 0;
+          transition: all 0.5s;
+        }
+        .sass::after {
+          content: "SASS";
+          position: absolute;
+          color: $placeholder;
+          font-size: 16px;
+          margin-right: 10px;
+          margin-top: 10px;
+          opacity: 0;
+          transition: all 0.5s;
+        }
+        .js::after {
+          content: "JavaScript";
+          position: absolute;
+          color: $placeholder;
+          font-size: 16px;
+          margin-right: 10px;
+          margin-top: 10px;
+          opacity: 0;
+          transition: all 0.5s;
+        }
+        .git::after {
+          content: "Git";
+          position: absolute;
+          color: $placeholder;
+          font-size: 16px;
+          margin-right: 10px;
+          margin-top: 10px;
+          opacity: 0;
+          transition: all 0.5s;
+        }
+        .css3::after {
+          content: "CSS3";
+          position: absolute;
+          color: $placeholder;
+          font-size: 16px;
+          margin-right: 10px;
+          margin-top: 10px;
+          opacity: 0;
+          transition: all 0.5s;
+        }
+        .react::after {
+          content: "React Js";
+          position: absolute;
+          color: $placeholder;
+          font-size: 16px;
+          margin-right: 10px;
+          margin-top: 10px;
+          opacity: 0;
+          transition: all 0.5s;
+        }
+        .photoshop::after {
+          content: "Photoshop";
+          position: absolute;
+          color: $placeholder;
+          font-size: 16px;
+          margin-right: 10px;
+          margin-top: 10px;
+          opacity: 0;
+          transition: all 0.5s;
+        }
+        .firebase::after {
+          content: "Firebase";
+          position: absolute;
+          color: $placeholder;
+          font-size: 16px;
+          margin-right: 10px;
+          margin-top: 10px;
+          opacity: 0;
+          transition: all 0.5s;
+        }
+      }
+    }
+  }
+  #contact {
+    overflow: hidden;
+    position: absolute;
+    top: 15vh;
+    left: 0;
+    width: 100vw;
+    padding: 0 3rem;
+    height: 70vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+  
+    #form {
+      transform: scale(81) translateX(0px) translateY(-5px);
+      h2 {
+        font-size: 36px;
+        font-weight: 900;
+        color: $primary;
+      }
+      h1 {
+        margin-top: 20px;
+        font-size: 16px;
+        font-weight: 400;
+        margin-bottom: 20px;
+        border-bottom: 5px solid transparent;
+        transition: all 0.3s;
+        cursor: pointer;
+        position: relative;
+        img {
+          width: 16px;
+          filter: invert(1);
+        }
+      }
+      h1::after {
+        content: "Copied";
+        border-radius: $curve;
+        background-color: $placeholder;
+        color: $light;
+        font-size: 10px;
+        padding: 5px 10px;
+        position: absolute;
+        top: 10%;
+        right: 0;
+        opacity: 0;
+        transform: translateX(100%);
+      }
+      h1:active::after {
+        opacity: 1;
+      }
+      img {
+        margin-right: 20px;
+        filter: invert(1) opacity(0.5);
+        width: 20px;
+        cursor: pointer;
+      }
+      div {
+        transition: all 0.5s;
+        display: inline;
+      }
+      div:hover {
+        margin-right: 80px;
+        &::after {
+          margin-right: 10px;
+          opacity: 1;
+        }
+      }
+      .linkedin::after {
+        content: "LinkedIn";
+        position: absolute;
+        color: $placeholder;
+        font-size: 14px;
+        margin-right: 0;
+        margin-top: 0px;
+        margin-left: -5px;
+        opacity: 0;
+        transition: all 0.5s;
+      }
+      .github::after {
+        content: "GitHub";
+        position: absolute;
+        color: $placeholder;
+        font-size: 14px;
+        margin-right: 0;
+        margin-top: 0px;
+        margin-left: -5px;
+        opacity: 0;
+        transition: all 0.5s;
+      }
+    }
+  }
+  
+}

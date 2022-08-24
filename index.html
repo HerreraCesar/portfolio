@@ -28,6 +28,10 @@
     <div id="instruction">
       <p>choose your language</p>
     </div>
+    <div class="progress-bar">
+      <div id="progress" class="progress">
+      </div>
+    </div>
     <div id="welcome" class="section">
       <div id="background">
         <video src="./assets/videos/1.mp4" autoplay loop muted></video>
@@ -42,7 +46,7 @@
           <button id="comenzar">_Comenzar</button>
         </div>
         <div class="social">
-          <a href="mailto:herrera.cesar.arg@gmail.com"
+          <a onclick="copyToClipboard()" id="email"
             ><img src="./assets/icons/mail.svg" alt="email"
           /></a>
           <a href="https://www.linkedin.com/in/herrera-cesar/" target="_blank"
