@@ -1,11 +1,6 @@
 @import "variables";
 
 @media screen and (max-aspect-ratio: 10/8) {
-  /* #container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    } */
   #welcome {
     position: fixed;
     top: 0;
@@ -116,11 +111,9 @@
       }
     }
   }
-
   #background {
     display: none;
   }
-
   #beginning {
     display: flex;
     flex-flow: column nowrap;
@@ -136,7 +129,6 @@
       animation: parpadeo 1s infinite;
     }
   }
-
   #about {
     position: absolute;
     top: 0;
@@ -222,12 +214,9 @@
   #curtain {
     border-radius: 50%;
     position: fixed;
-    //margin: auto;
     left: 50vw;
     top: 50vh;
     width: 0%;
-    //text-align: center;
-    //justify-self: center;
     max-width: 120vh;
     max-height: 120vh;
     background-color: $dark;
@@ -328,8 +317,6 @@
           z-index: -1;
           justify-content: space-between;
           div {
-            //height: 100%;
-
             h3 {
               margin-bottom: 10px;
             }
@@ -343,7 +330,6 @@
               backdrop-filter: blur($blur);
               font-weight: bolder;
               display: block;
-              //z-index: 20;
               color: $light;
               padding: 5px;
               box-shadow: 0 0 5px $shadow;
@@ -499,7 +485,6 @@
     display: none;
     justify-content: center;
     align-items: center;
-  
     #form {
       transform: scale(81) translateX(0px) translateY(-5px);
       h2 {
@@ -578,5 +563,4 @@
       }
     }
   }
-  
 }

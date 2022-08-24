@@ -67,8 +67,15 @@ body {
   opacity: 0;
 }
 
-h1, h2, h3, h4, h5, h6, p, span {
-  color: $light
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+  color: $light;
 }
 
 .progress-bar {
@@ -76,7 +83,7 @@ h1, h2, h3, h4, h5, h6, p, span {
   position: fixed;
   top: 0px;
   width: 100%;
-  height: 5px
+  height: 5px;
 }
 
 .progress {
@@ -86,8 +93,7 @@ h1, h2, h3, h4, h5, h6, p, span {
   border-radius: $curve;
 }
 
-
-// IMPORTACIONES PARCIALES 
+// IMPORTACIONES PARCIALES
 
 @import "./scss/welcome.scss";
 @import "./scss/beginning.scss";

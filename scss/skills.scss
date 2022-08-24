@@ -1,54 +1,54 @@
 @import "../variables.scss";
 
 #skills {
-    position: absolute;
-    top: 15vh;
-    left: 0;
-    width: 100vw;
-    padding: 0 5rem;
-    height: 70vh;
-    overflow: hidden;
-    display: none;
-    flex-direction: column;
+  position: absolute;
+  top: 15vh;
+  left: 0;
+  width: 100vw;
+  padding: 0 5rem;
+  height: 70vh;
+  overflow: hidden;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  transition: all 1s ease-in-out;
+  #technologies {
+    display: flex;
+    flex-flow: column;
     align-items: center;
-    transition: all 1s ease-in-out;
-    #technologies {
-        display: flex;
-        flex-flow: column;
-        align-items: center;
-        width: 100%;
-        height: auto;
-        gap: 20rem;
-        transform: translateY(80vh);
-        div {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        h3 {
-            font-size: 6rem;
-            text-align: end;
-            margin-right: 5rem;
-        }
-        svg {
-            fill: $primary;
-            width: 20rem;
-            height: 20rem;
-        }
+    width: 100%;
+    height: auto;
+    gap: 20rem;
+    transform: translateY(80vh);
+    div {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    #back {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        align-items: center;
-        transform: translateY(70vh);
-        z-index: -1;
-        h3 {
-            margin-bottom: 0.5rem;
-            font-size: 20rem;
-            font-weight: bolder;
-            color: hsla(0, 0%, 33%, 0.3);
-        }
+    h3 {
+      font-size: 6rem;
+      text-align: end;
+      margin-right: 5rem;
     }
+    svg {
+      fill: $primary;
+      width: 20rem;
+      height: 20rem;
+    }
+  }
+  #back {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    align-items: center;
+    transform: translateY(70vh);
+    z-index: -1;
+    h3 {
+      margin-bottom: 0.5rem;
+      font-size: 20rem;
+      font-weight: bolder;
+      color: hsla(0, 0%, 33%, 0.3);
+    }
+  }
 }

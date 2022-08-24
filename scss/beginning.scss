@@ -1,24 +1,27 @@
 @import "../variables.scss";
 
 #beginning {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: flex-start;
-    #text {
-        position: absolute;
-        font-size: 7rem;
-        margin-left: 5rem;
-        top: calc(50vh - 3.5rem);
-        z-index: 5;
-        border-right: 0.5rem solid $light;
-        animation: parpadeo 1s infinite;
-    }
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  #text {
+    position: absolute;
+    font-size: 7rem;
+    margin-left: 5rem;
+    top: calc(50vh - 3.5rem);
+    z-index: 5;
+    border-right: 0.5rem solid $light;
+    animation: parpadeo 1s infinite;
+  }
 }
 
-@keyframes parpadeo{
-	from, to{border-color:transparent}
-	50%{border-color:#FFFFFF}
+@keyframes parpadeo {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #ffffff;
+  }
 }
-
-

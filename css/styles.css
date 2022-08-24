@@ -62,7 +62,14 @@ body {
   opacity: 0;
 }
 
-h1, h2, h3, h4, h5, h6, p, span {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
   color: #ffffff;
 }
 
@@ -235,7 +242,7 @@ h1, h2, h3, h4, h5, h6, p, span {
     border-color: transparent;
   }
   50% {
-    border-color: #FFFFFF;
+    border-color: #ffffff;
   }
 }
 #about {
@@ -279,7 +286,7 @@ h1, h2, h3, h4, h5, h6, p, span {
 #about #data a {
   transition: all 0.3s;
   transform: translateY(5rem);
-  width: 16rem;
+  width: 21rem;
   display: flex;
   color: #fffb95;
   font-size: 2.4rem;
@@ -672,11 +679,6 @@ h1, h2, h3, h4, h5, h6, p, span {
 }
 
 @media screen and (max-aspect-ratio: 10/8) {
-  /* #container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    } */
   #welcome {
     position: fixed;
     top: 0;
