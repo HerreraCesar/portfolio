@@ -1,16 +1,16 @@
 @import "../variables.scss";
 
 #experiences {
-  transform: translateX(-220rem);
+  transform: translateX(-250rem);
   z-index: -1;
   position: absolute;
   top: 15vh;
   left: 0;
-  width: 140vw;
+  width: 160vw;
   padding: 0 5rem;
   height: 70vh;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   grid-template-rows: 1fr;
   grid-gap: 5rem;
   justify-content: center;
@@ -116,6 +116,15 @@
       .firebase:hover {
         margin-right: 90px;
       }
+      .mongo:hover {
+        margin-right: 90px;
+      }
+      .node:hover {
+        margin-right: 80px;
+      }
+      .express:hover {
+        margin-right: 110px;
+      }
       .html::after {
         content: "HTML";
         position: absolute;
@@ -188,6 +197,36 @@
       }
       .firebase::after {
         content: "Firebase";
+        position: absolute;
+        color: $placeholder;
+        font-size: 16px;
+        margin-right: 10px;
+        margin-top: 10px;
+        opacity: 0;
+        transition: all 0.5s;
+      }
+      .mongo::after {
+        content: "MongoDB";
+        position: absolute;
+        color: $placeholder;
+        font-size: 16px;
+        margin-right: 10px;
+        margin-top: 10px;
+        opacity: 0;
+        transition: all 0.5s;
+      }
+      .node::after {
+        content: "Node.Js";
+        position: absolute;
+        color: $placeholder;
+        font-size: 16px;
+        margin-right: 10px;
+        margin-top: 10px;
+        opacity: 0;
+        transition: all 0.5s;
+      }
+      .express::after {
+        content: "Express Js";
         position: absolute;
         color: $placeholder;
         font-size: 16px;

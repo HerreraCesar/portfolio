@@ -393,16 +393,16 @@ span {
 }
 
 #experiences {
-  transform: translateX(-220rem);
+  transform: translateX(-250rem);
   z-index: -1;
   position: absolute;
   top: 15vh;
   left: 0;
-  width: 140vw;
+  width: 160vw;
   padding: 0 5rem;
   height: 70vh;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   grid-template-rows: 1fr;
   grid-gap: 5rem;
   justify-content: center;
@@ -508,6 +508,15 @@ span {
 #experiences .project .icons .firebase:hover {
   margin-right: 90px;
 }
+#experiences .project .icons .mongo:hover {
+  margin-right: 90px;
+}
+#experiences .project .icons .node:hover {
+  margin-right: 80px;
+}
+#experiences .project .icons .express:hover {
+  margin-right: 110px;
+}
 #experiences .project .icons .html::after {
   content: "HTML";
   position: absolute;
@@ -580,6 +589,36 @@ span {
 }
 #experiences .project .icons .firebase::after {
   content: "Firebase";
+  position: absolute;
+  color: #777777;
+  font-size: 16px;
+  margin-right: 10px;
+  margin-top: 10px;
+  opacity: 0;
+  transition: all 0.5s;
+}
+#experiences .project .icons .mongo::after {
+  content: "MongoDB";
+  position: absolute;
+  color: #777777;
+  font-size: 16px;
+  margin-right: 10px;
+  margin-top: 10px;
+  opacity: 0;
+  transition: all 0.5s;
+}
+#experiences .project .icons .node::after {
+  content: "Node.Js";
+  position: absolute;
+  color: #777777;
+  font-size: 16px;
+  margin-right: 10px;
+  margin-top: 10px;
+  opacity: 0;
+  transition: all 0.5s;
+}
+#experiences .project .icons .express::after {
+  content: "Express Js";
   position: absolute;
   color: #777777;
   font-size: 16px;
@@ -963,7 +1002,7 @@ span {
     padding: 0 5rem;
     height: 70vh;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     grid-template-rows: 1fr;
     grid-gap: 5rem;
     justify-content: center;

@@ -146,7 +146,7 @@ start.addEventListener("click", () => {
       progressBar.style.width = `${(progress * 100) / 427}%`;
       if (ratio < 1.25) {
         if (progress < 10) {
-          text.style.top = `calc(50vh - 0.75rem - ${progress / 0.35}rem)`;
+          text.style.top = `calc(50vh - 0.75rem - ${progress / 0.33}rem)`;
           text.innerHTML = base;
           contact.style.display = "none";
         }
@@ -563,6 +563,42 @@ start.addEventListener("click", () => {
                 </div>
                 <div class='photoshop'>
                   <img src="./assets/icons/photoshop.svg" alt="photoshop">
+                </div>
+              </div>
+            </div>
+            <div class='project'>
+              <div class='screenshot'>
+                <img src="./assets/images/ecommerce.png" alt="ecommerce">
+                <div class='links'>
+                  <div>
+                    <h3>Mi tienda</h3>
+                    <p>E-commerce made during the development of the Coderhouse Backend Programming course.</p>
+                  </div>
+                  <div>
+                    <a href='https://github.com/HerreraCesar/ecommerce' target='_blank'>_Repository </a>
+                    <a href='https://ecommerce-mitienda.netlify.app/' target='_blank'>_Deploy </a>
+                  </div>
+                </div>
+              </div>
+              <h3>Mi tienda</h3>
+              <div class='icons'>
+                <div class='react'>
+                  <img src="./assets/icons/react.svg" alt="react">
+                </div>
+                <div class='sass'>
+                  <img src="./assets/icons/sass.svg" alt="sass">
+                </div>
+                <div class='mongo'>
+                  <img src="./assets/icons/mongodb.svg" alt="mongo">
+                </div>
+                <div class='node'>
+                  <img src="./assets/icons/node.svg" alt="node">
+                </div>
+                <div class='express'>
+                  <img src="./assets/icons/express.svg" alt="express">
+                </div>
+                <div class='git'>
+                  <img src="./assets/icons/git.svg" alt="git">
                 </div>
               </div>
             </div>
@@ -1098,11 +1134,47 @@ start.addEventListener("click", () => {
                 </div>
               </div>
             </div>
+            <div class='project'>
+              <div class='screenshot'>
+                <img src="./assets/images/ecommerce.png" alt="ecommerce">
+                <div class='links'>
+                  <div>
+                    <h3>Mi tienda</h3>
+                    <p>E-commerce made during the development of the Coderhouse Backend Programming course.</p>
+                  </div>
+                  <div>
+                    <a href='https://github.com/HerreraCesar/ecommerce' target='_blank'>_Repository </a>
+                    <a href='https://ecommerce-mitienda.netlify.app/' target='_blank'>_Deploy </a>
+                  </div>
+                </div>
+              </div>
+              <h3>Mi tienda</h3>
+              <div class='icons'>
+                <div class='react'>
+                  <img src="./assets/icons/react.svg" alt="react">
+                </div>
+                <div class='sass'>
+                  <img src="./assets/icons/sass.svg" alt="sass">
+                </div>
+                <div class='mongo'>
+                  <img src="./assets/icons/mongodb.svg" alt="mongo">
+                </div>
+                <div class='node'>
+                  <img src="./assets/icons/node.svg" alt="node">
+                </div>
+                <div class='express'>
+                  <img src="./assets/icons/express.svg" alt="express">
+                </div>
+                <div class='git'>
+                  <img src="./assets/icons/git.svg" alt="git">
+                </div>
+              </div>
+            </div>
           `;
         }
         if (progress >= 293) {
           experiences.style.transform = `translateX(${
-            -220 + (progress - 293) * 5
+            -250 + (progress - 293) * 6
           }rem)`;
         }
         if (progress >= 368) {
@@ -1734,6 +1806,42 @@ comenzar.addEventListener("click", () => {
                 </div>
               </div>
             </div>
+            <div class='project'>
+              <div class='screenshot'>
+                <img src="./assets/images/ecommerce.png" alt="ecommerce">
+                <div class='links'>
+                  <div>
+                    <h3>Mi tienda</h3>
+                    <p>E-commerce realizado durante el desarrollo del curso Programación Backend de Coderhouse.</p>
+                  </div>
+                  <div>
+                    <a href='https://github.com/HerreraCesar/ecommerce' target='_blank'>_Repositorio </a>
+                    <a href='https://ecommerce-mitienda.netlify.app/' target='_blank'>_Despliegue </a>
+                  </div>
+                </div>
+              </div>
+              <h3>Mi tienda</h3>
+              <div class='icons'>
+                <div class='react'>
+                  <img src="./assets/icons/react.svg" alt="react">
+                </div>
+                <div class='sass'>
+                  <img src="./assets/icons/sass.svg" alt="sass">
+                </div>
+                <div class='mongo'>
+                  <img src="./assets/icons/mongodb.svg" alt="mongo">
+                </div>
+                <div class='node'>
+                  <img src="./assets/icons/node.svg" alt="node">
+                </div>
+                <div class='express'>
+                  <img src="./assets/icons/express.svg" alt="express">
+                </div>
+                <div class='git'>
+                  <img src="./assets/icons/git.svg" alt="git">
+                </div>
+              </div>
+            </div>
           `;
         }
         if (progress >= 311) {
@@ -2327,6 +2435,42 @@ comenzar.addEventListener("click", () => {
                 </div>
                 <div class='photoshop'>
                   <img src="./assets/icons/photoshop.svg" alt="photoshop">
+                </div>
+              </div>
+            </div>
+            <div class='project'>
+              <div class='screenshot'>
+                <img src="./assets/images/ecommerce.png" alt="ecommerce">
+                <div class='links'>
+                  <div>
+                    <h3>Mi tienda</h3>
+                    <p>E-commerce realizado durante el desarrollo del curso Programación Backend de Coderhouse.</p>
+                  </div>
+                  <div>
+                    <a href='https://github.com/HerreraCesar/ecommerce' target='_blank'>_Repositorio </a>
+                    <a href='https://ecommerce-mitienda.netlify.app/' target='_blank'>_Despliegue </a>
+                  </div>
+                </div>
+              </div>
+              <h3>Mi tienda</h3>
+              <div class='icons'>
+                <div class='react'>
+                  <img src="./assets/icons/react.svg" alt="react">
+                </div>
+                <div class='sass'>
+                  <img src="./assets/icons/sass.svg" alt="sass">
+                </div>
+                <div class='mongo'>
+                  <img src="./assets/icons/mongodb.svg" alt="mongo">
+                </div>
+                <div class='node'>
+                  <img src="./assets/icons/node.svg" alt="node">
+                </div>
+                <div class='express'>
+                  <img src="./assets/icons/express.svg" alt="express">
+                </div>
+                <div class='git'>
+                  <img src="./assets/icons/git.svg" alt="git">
                 </div>
               </div>
             </div>
