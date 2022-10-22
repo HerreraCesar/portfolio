@@ -1369,7 +1369,7 @@ comenzar.addEventListener("click", () => {
             <div id="data">
               <h1 id='name'>César</h1>
               <p><strong>Desarrollador Full Stack</strong> amante de la tecnología. Entre mis intereses se encuentran el cine, la fotografía, la estadística, la arquitectura y la informática. Soy una <strong>persona muy curiosa, ordenada y detallista</strong>. Mis estudios me enseñaron a <strong>trabajar en equipo</strong> y buscar la mejora constante. Actualmente me encuentro enfocado en progresar dentro del ámbito laboral para desarrollarme personalmente y <strong>seguir creciendo</strong>.</p>
-              <a href="./assets/pdfs/CV_Herrera_Cesar_English.pdf" target="_blank">_Currículum<img src="./assets/icons/open.svg" alt=""></a>
+              <a href="./assets/pdfs/CV_Herrera_Cesar_Español.pdf" target="_blank">_Currículum<img src="./assets/icons/open.svg" alt=""></a>
             </div>
             <img id="profile" src="./assets/images/profile.jpg" alt="profile picture">
           `;
@@ -1988,7 +1988,7 @@ comenzar.addEventListener("click", () => {
             <div id="data">
               <h1 id='name'>César</h1>
               <p><strong>Desarrollador Full Stack</strong> amante de la tecnología. Entre mis intereses se encuentran el cine, la fotografía, la estadística, la arquitectura y la informática. Soy una <strong>persona muy curiosa, ordenada y detallista</strong>. Mis estudios me enseñaron a <strong>trabajar en equipo</strong> y buscar la mejora constante. Actualmente me encuentro enfocado en progresar dentro del ámbito laboral para desarrollarme personalmente y <strong>seguir creciendo</strong>.</p>
-              <a href="./assets/pdfs/CV_Herrera_Cesar_English.pdf" target="_blank">_Currículum<img src="./assets/icons/open.svg" alt=""></a>
+              <a href="./assets/pdfs/CV_Herrera_Cesar_Español.pdf" target="_blank">_Currículum<img src="./assets/icons/open.svg" alt=""></a>
             </div>
             <img id="profile" src="./assets/images/profile.jpg" alt="profile picture">
           `;
